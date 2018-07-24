@@ -1,0 +1,9 @@
+{% include "header.html" %}
+
+{% include "navigation.html" %}
+
+{% autoescape on %}
+{% block content %}{% endblock %}
+{% endautoescape %}
+
+{%include "footer.html" %}

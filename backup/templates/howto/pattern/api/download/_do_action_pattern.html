@@ -1,0 +1,117 @@
+<h4 id="do_action_pattern">Do Action Pattern</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def do_action_pattern(pattern_list=[], tag="href",
+                          size_validation=True, get_url_sleep=False)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>pattern_list</code></td>
+                        <td><code>List</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            List of action to be perform to download the file.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>size_validation</code></td>
+                        <td><code>Boolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Validate the file size of the downloaded file. Default <code>True</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>tag</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Extract the url from target tag. Default target <code>href</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>get_url_sleep</code></td>
+                        <td><code>Boolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Set the Harvest on sleep prior extracting the url. Intended for sites with lots of ads, videos, etc.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>List</code></em>
+            <p/>
+
+<pre>
+[
+    {
+    "download_path": "&lt;file location&gt;",
+    "headers": {},
+    },
+    {
+        "download_path": "&lt;file location&gt;",
+        "headers": {},
+    }
+]
+</pre>
+
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    self.key = "CNET"
+    # self.page['url'] = "http://download.cnet.com/Chess-2020/3000-18516_4-75742378.html"
+    log.info("Downloading using CNET crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+
+    ...
+    """Target pattern combination"""
+    pattern_list = [
+        {
+            "xpath": xpath_direct,
+            "action": "click"
+        },
+    ]
+    self.do_target_pattern(pattern_list=pattern_list)
+
+    """Action pattern"""
+    pattern_list = [
+        {
+            "action": "header",
+            "xpath": "//*[@id=\"pdl-manual\"]"
+        }
+    ]
+
+    return self.do_action_pattern(pattern_list=pattern_list, size_validation=True, get_url_sleep=True)
+</pre>
+

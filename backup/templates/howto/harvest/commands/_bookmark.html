@@ -1,0 +1,134 @@
+
+<!--<script>-->
+	<!--$('.collapse').on('shown.bs.collapse', function(){-->
+	<!--$(this).parent().find("+").removeClass("test").addClass("glyphicon-minus");-->
+	<!--}).on('hidden.bs.collapse', function(){-->
+	<!--$(this).parent().find(".glyphicon-minus").removeClass("glyphicon-minus").addClass("glyphicon-plus");-->
+	<!--});-->
+<!--</script>-->
+<style>
+  .commercial-theme .tm-nav-list > .active > a,
+  .commercial-theme .tm-nav-list > .active > a:hover,
+  .commercial-theme .tm-nav-list > .active > a:focus {
+    padding-left: 5px;
+    cursor: default;
+    background: #ffffff;
+  }
+</style>
+<div class="panel-title">
+	<ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+		<li><a href="#domain_crawler"><i class="label"></i><b>Domain Crawler &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a></li>
+		<li class="tm-divider"></li><li class="tm-divider"></li>
+		<li class="no-style"><a data-toggle="collapse" data-parent="tm-accordion" href="#collapseOne" style="border-left: 4px #fff6f6 solid; color:#000000; padding-left: 7px;" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+</a></li>
+		<li class="tm-divider"></li>
+	</ul>
+</div>
+<div id="collapseOne" class="panel-collapse collapse">
+	<div class="panel-body">
+		<ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+			<li><a href="#default"><i class="icon-chevron-right"></i> Default</a></li>
+			<li><a href="#register"><i class="icon-chevron-right"></i> Register Pattern</a></li>
+			<li><a href="#init_farmer"><i class="icon-chevron-right"></i> Initialize Pattern</a></li>
+			<li class="tm-divider"></li>
+		</ul>
+	</div>
+</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+                    <ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+					    <li><a href="#rss"><i class="label"></i><b>Domain Crawler via RSS</b></a></li>
+					    <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="sign" style="border-left: hidden; color:#000000; padding-left: 10px;">+</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+                </div>
+			</div>
+			<div id="collapseTwo" class="panel-collapse collapse">
+				<div class="panel-body">
+                    <ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+				    	<li><a href="#default_rss"><i class="icon-chevron-right"></i> Default</a></li>
+				    	<li><a href="#specific_rss"><i class="icon-chevron-right"></i> Run Specific RSS</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+                </div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+                    <ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+                        <li><a href="#page_crawler"><i class="label"></i><b>Page Crawler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a></li>
+                        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="sign" style="border-left: hidden; color:#000000; padding-left: 10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+				</div>
+			</div>
+			<div id="collapseThree" class="panel-collapse collapse">
+				<div class="panel-body">
+					<ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+                        <li><a href="#default_page_crawler"><i class="icon-chevron-right"></i> Default</a></li>
+	    				<li><a href="#download_once"><i class="icon-chevron-right"></i> Download Once</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+                </div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+                    <ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+                        <li><a href="#other_commands"><i class="label"></i><b>Other Commands&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a></li>
+                        <li><a data-toggle="collapse" data-parent="#accordion" href="#collapseFour" class="sign" style="border-left: hidden; color:#000000; padding-left: 9px;">&nbsp;&nbsp;&nbsp;&nbsp;+</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+                </div>
+			</div>
+			<div id="collapseFour" class="panel-collapse collapse">
+				<div class="panel-body">
+                    <ul class="nav tm-nav tm-nav-list"><li class="tm-divider"></li>
+                        <li><a href="#list_all"><i class="icon-chevron-right"></i> List all Patterns</a></li>
+                        <li><a href="#pending_download"><i class="icon-chevron-right"></i> Get Pending pages</a></li>
+                        <li><a href="#run_as_client"><i class="icon-chevron-right"></i> Run as Client</a></li>
+                        <li class="tm-divider"></li>
+                    </ul>
+				</div>
+			</div>
+		</div>
+<!--
+    <li><a href="#domain_crawler"><i class="label"></i><b>+</b></a></li>
+    <li><a href="#default"><i class="icon-chevron-right"></i> Default</a></li>
+    <li><a href="#register"><i class="icon-chevron-right"></i> Register Pattern</a></li>
+    <li><a href="#init_farmer"><i class="icon-chevron-right"></i> Initialize Pattern</a></li>
+
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+
+    <li><a href="#rss"><i class="label"></i><b>Domain - Crawler via RSS</b></a></li>
+    <li><a href="#default_rss"><i class="icon-chevron-right"></i> Default</a></li>
+    <li><a href="#specific_rss"><i class="icon-chevron-right"></i> Run Specific RSS</a></li>
+
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+
+    <li><a href="#page_crawler"><i class="label"></i><b>Page Crawler</b></a></li>
+    <li><a href="#default_page_crawler"><i class="icon-chevron-right"></i> Default</a></li>
+    <li><a href="#download_once"><i class="icon-chevron-right"></i> Download Once</a></li>
+
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+    <li class="tm-divider"></li>
+
+    <li><a href="#other_commands"><i class="label"></i><b>Other Commands</b></a></li>
+    <li><a href="#list_all"><i class="icon-chevron-right"></i> List all Patterns</a></li>
+    <li><a href="#pending_download"><i class="icon-chevron-right"></i> Get Pending pages</a></li>
+    <li><a href="#run_as_client"><i class="icon-chevron-right"></i> Run as Client</a></li>
+-->

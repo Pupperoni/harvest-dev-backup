@@ -1,0 +1,40 @@
+<div class="tm-panel">
+    <h6>RSS PATTERN ({{ results.rss.pass }}/{{ results.rss.data|length}})</h6>
+    <div class="tm-panel-content">
+
+        <table class="table table-bordered table-striped" id="default-buttons">
+        <thead>
+        <tr>
+            <th>PATTERN NAME</th>
+            <th>SHA1</th>
+            <th>MD5</th>
+            <th>ADDED ON</th>
+            <th>STARTED ON</th>
+            <th>COMPLETED ON</th>
+            <th>STATUS</th>
+        </tr>
+        </thead>
+        <tbody>
+        </tbody>
+            {% for dat in results.rss.data %}
+            <tr>
+                <td>{{ dat.pattern_file }}</td>
+                <td>{{ dat.sha1 }}</td>
+                <td>{{ dat.md5 }}</td>
+                <td>{{ dat.added_on }}</td>
+                <td>{{ dat.started_on }}</td>
+                <td>{{ dat.completed_on }}</td>
+
+                {% if dat.status|lower == 'pass' %}
+                <td><span class="tm-label tm-label-success no-arrow">{{ dat.status|upper }}</span></td>
+                {% elif dat.status|lower == 'fail' %}
+                <td><span class="tm-label tm-label-error no-arrow">{{ dat.status|upper }}</span></td>
+                {% else %}
+                <td><span class="tm-label tm-label-warning no-arrow">{{ dat.status|upper }}</span></td>
+                {% endif %}
+
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>

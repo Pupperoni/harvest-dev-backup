@@ -1,0 +1,140 @@
+<div class="row-fluid">
+    <div class="span8">
+
+        <p>1. Identify the target website and check if there is available RSS feed to get the new/updated application. If yes, copy the URL.</p>
+<pre>
+eg: http://www.softpedia.com/backend.xml?_free
+</pre>
+        <p>2. Create pattern under <code>{PROJECT_ROOT}/modules/feeds/</code>. Format: <code>(domain).py</code></p>
+
+        <p>3. Import all needed Python and Harvest libraries. Note: Harvest uses JSON and XML for data parsing.</p>
+<pre>
+import json
+import xml.etree.ElementTree as ET
+from lib.main.common.abstracts import Feed
+</pre>
+
+        <p>4. Set the pattern details.</p>
+<pre>
+class ClassName(Feed):
+    # &lt;editor-fold desc="Mandatory Pattern Attributes"&gt;
+    name = "&lt;name&gt;"  # Name of the site
+    authors = ["&lt;authors&gt;"]  # name of devs who created or updated the pattern
+    categories = ["&lt;categories&gt;"]  # service offered by the site (check AC master list)
+    date_created = "&lt;date_created&gt;"  # date created or last update
+    enabled = &lt;enabled&gt;  # enable this feed
+    priority = &lt;priority&gt;  # priority of the site upon processing
+    tags = ["&lt;tags&gt;"]
+    # &lt;/editor-fold&gt;
+</pre>
+
+        <p>5. Set the pattern <code>feedname</code> and pattern <code>frequency</code>.</p>
+<pre>
+    def __init__(self):
+        Feed.__init__(self)
+        # Location of the feed to be fetched
+        self.downloadurl = [
+            "&lt;start_url&gt;",
+        ]
+
+        # Used in creating the file path on disk
+        self.feedname = "&lt;feedname&gt;"
+        # How much time must pass (in minutes) before we update
+        self.frequency = &lt;frequency&gt;
+
+        self.target_options = None
+        self.action_options = None
+</pre>
+
+        <p>6. Add the following function to parse the RSS XML data. </p>
+<pre id="rss_pattern">
+    def modify(self):
+        data = self.downloaddata
+        xml = ET.fromstring(data)
+        channel = xml.find('channel')
+        feed = []
+        for item in channel.findall('item'):
+            new = {}
+            new['title'] = item.find('title').text
+            new['link'] = item.find('link').text
+            feed.append(new)
+
+        # format data
+        data = {}
+        data["pattern"] = {
+            "target_options" : self.target_options,
+            "action_options" : self.action_options,
+        }
+        data["data"] = feed
+
+        self.data = json.dumps(data, indent=4)
+</pre>
+        <ul class="tm-nav tm-nav-list tm-nav-nested-list" >
+            <li>
+                <a href="#" data-toggle="tm-nav-nested-list" class="collapsed">See pattern here<span class="caret"></span></a>
+                <ul class="tm-nav tm-nav-list collapse">
+                    <li>
+
+<pre class="prettyprint">
+import json
+import xml.etree.ElementTree as ET
+from lib.main.common.abstracts import Feed
+
+class ClassName(Feed):
+    # &lt;editor-fold desc="Mandatory Pattern Attributes"&gt;
+    name = "&lt;name&gt;"  # Name of the site
+    authors = ["&lt;authors&gt;"]  # name of devs who created or updated the pattern
+    categories = ["&lt;categories&gt;"]  # service offered by the site (check AC master list)
+    date_created = "&lt;date_created&gt;"  # date created or last update
+    enabled = &lt;enabled&gt;  # enable this feed
+    priority = &lt;priority&gt;  # priority of the site upon processing
+    tags = ["&lt;tags&gt;"]
+    # &lt;/editor-fold&gt;
+
+    def __init__(self):
+        Feed.__init__(self)
+        # Location of the feed to be fetched
+        self.downloadurl = [
+            "&lt;start_url&gt;",
+        ]
+
+        # Used in creating the file path on disk
+        self.feedname = "&lt;feedname&gt;"
+        # How much time must pass (in minutes) before we update
+        self.frequency = &lt;frequency&gt;
+
+        self.target_options = None
+        self.action_options = None
+
+    def modify(self):
+        data = self.downloaddata
+        xml = ET.fromstring(data)
+        channel = xml.find('channel')
+        feed = []
+        for item in channel.findall('item'):
+            new = {}
+            new['title'] = item.find('title').text
+            new['link'] = item.find('link').text
+            feed.append(new)
+
+        # format data
+        data = {}
+        data["pattern"] = {
+            "target_options" : self.target_options,
+            "action_options" : self.action_options,
+        }
+        data["data"] = feed
+
+        self.data = json.dumps(data, indent=4)
+</pre>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="span4">
+    </div>
+</div>

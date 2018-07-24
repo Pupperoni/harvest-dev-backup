@@ -1,0 +1,516 @@
+/* Responsive
+-------------------------------------------------- */
+.commercial-theme .bs-docs-example .tm-navbar.tm-navbar-fixed-top .tm-navbar-inner,
+.commercial-theme .bs-docs-example .tm-navbar.tm-navbar-fixed-bottom .tm-navbar-inner,
+.commercial-theme .bs-docs-example .tm-navbar.tm-navbar-static-top .tm-navbar-inner{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Desktop
+------------------------- */
+@media (max-width: 980px) {
+  /*body:before {
+    position: absolute;
+    content: "Desktop:max-width:980px";
+    z-index: -1;
+    top:40px;
+  }*/
+  
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a:hover,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+    /*font-size: 13px;*/
+  }
+
+  /* Unfloat brand */ 
+
+  /* Inline-block quick links for more spacing*/
+  .commercial-theme .quick-links li {
+    display: inline-block;
+    margin: 5px;
+  }
+  
+  .commercial-theme .jumbotron.home .tm-container h1{
+    margin-top: 0px;
+    font-size: 32px;
+  }
+  .commercial-theme .jumbotron.home .tm-container .download a.tm-btn {
+    margin-top: 0;
+  }
+  /* When affixed, space properly*/
+  .commercial-theme .commercial-theme .bs-docs-sidenav {
+    top: 0;
+    width: 220px;
+    margin-top: 20px !important;
+    margin-right: 0;
+  }
+  .commercial-theme .bs-docs-example .tm-navbar.tm-navbar-static-top .tm-navbar-inner,
+  .commercial-theme .bs-docs-example .tm-navbar.tm-navbar-fixed-top .tm-navbar-inner ,
+  .commercial-theme .bs-docs-example .tm-navbar.tm-navbar-fixed-bottom .tm-navbar-inner {
+    height: auto;
+  }
+  .commercial-theme .bs-docs-example.bs-navbar-responsive-example {
+    overflow: hidden;
+    height: 500px;
+  }
+  .commercial-theme .bs-docs-example.bs-navbar-responsive-example .tm-navbar .tm-navbar-inner {
+    padding: 5px;
+    height: 30px;
+  }  
+  .commercial-theme #templates .bootstrap-examples .span3 {
+    min-height: 320px;
+  }
+  /* Customize*/
+  .commercial-theme .download .checkbox {
+    width: 100%;
+  }
+}
+
+/* Desktop large
+------------------------- */
+@media (min-width: 1230px) {
+  /*body:before {
+    position: absolute;
+    content: "Desktop:min-width: 1230px";
+    z-index: -1;
+  }*/
+  /*.bs-docs-container {
+    max-width: 970px;
+  }*/
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a:hover,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a:hover {
+    padding-left: 15px;
+    padding-right: 15px;
+    /*font-size: 13px;*/
+  }
+  .commercial-theme .jumbotron.home .tm-container h1{
+    margin-top: 20px;
+    font-size: 34px;
+  }
+  .commercial-theme .jumbotron.home .tm-container .download a.tm-btn {
+    margin-top: 15px;
+  }
+  .commercial-theme .bs-docs-sidenav {
+    width: 270px;
+    margin-top: 30px !important;
+  }
+  .commercial-theme #templates .bootstrap-examples .span3 {
+    min-height: 340px;
+  }
+  /* Customize*/
+  .commercial-theme .download .checkbox {
+    width: 33%;
+  }
+  /* Templates */
+  .commercial-theme .bootstrap-examples.thumbnails  li{
+    min-height: 350px;
+  }
+}
+
+/* Desktop supper large
+------------------------- */
+@media (min-width: 1350px) {
+  /*body:before {
+    position: absolute;
+    content: "Desktop supper: min-width: 1350px";
+    z-index: -1;
+  }*/
+  /*.bs-docs-container {
+    max-width: 970px;
+  }*/
+  .commercial-theme .jumbotron.home .tm-container h1{
+    margin-top: 25px;
+    font-size: 36px;
+  }
+  .commercial-theme .jumbotron.home .tm-container .download a.tm-btn {
+    margin-top: 20px;
+  }
+  .commercial-theme .commercial-theme .bs-docs-sidenav {
+    width: 300px;
+  }
+  .commercial-theme #templates .bootstrap-examples .span3 {
+    min-height: 360px;
+  }
+  /* Customize*/
+  .commercial-theme .download .checkbox {
+    width: 33%;
+  }
+  /* Templates */
+  .commercial-theme .bootstrap-examples.thumbnails  li{
+    min-height: 370px;
+  }
+}
+
+/* Desktop largest
+------------------------- */
+@media (min-width: 1600px) {
+  /*/*body:before {
+    position: absolute;
+    content: "Desktop largest: min-width: 1600px";
+    z-index: -1;
+  }*/
+  /*.bs-docs-container {
+    max-width: 970px;
+  }*/
+  
+  .commercial-theme .jumbotron.home .tm-container h1{
+    margin-top: 25px;
+    font-size: 36px;
+  }
+  .commercial-theme .jumbotron.home .tm-container .download a.tm-btn {
+    margin-top: 20px;
+  }
+  .commercial-theme .commercial-theme .bs-docs-sidenav {
+    width: 350px;
+    margin-top: 40px !important;
+  }
+  .commercial-theme .commercial-theme .bs-docs-sidenav > li > a {
+    width: 230px \9; /* Override the previous IE8-9 hack */
+  }
+  .commercial-theme #templates .bootstrap-examples .span3 {
+    min-height: 400px;
+  }
+  /* Customize*/
+  .commercial-theme .download .checkbox {
+    width: 25%;
+  }
+  /* Templates */
+  .commercial-theme .bootstrap-examples.thumbnails  li{
+    min-height: 390px
+  }
+}
+
+/* Tablet portrait
+------------------------- */
+
+@media (min-width: 768px) and (max-width: 979px) { 
+  /*body:before {
+    position: absolute;
+    content: "Tablet to desktop: min-width: 768p max-width: 979px";
+    top:40px;
+    z-index: -1;
+  }*/
+  /* Remove any padding from the body*/
+  .commercial-theme  {
+    padding-top: 0;
+  }
+  
+  .commercial-theme  > .tm-navbar.tm-navbar-fixed-top.static  .tm-nav-banner + .tm-navbar-inner .tm-brand {
+    display: none;
+  }
+  
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a,
+  body.commercial-theme  > .tm-navbar .tm-nav > li > a:hover,
+  body.commercial-theme  > .tm-navbar .tm-nav > li.active > a:hover {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-size: 12px;
+  }   
+  .commercial-theme  section {
+    padding-top: 20px;
+  }
+  /* Widen masthead and social buttons to fill body padding*/
+  .commercial-theme  .jumbotron {
+    margin-top: 0; /* Offset bottom margin on .navbar*/
+    padding: 20px 0;
+  }
+  .commercial-theme  .jumbotron.home .tm-container {
+    text-align: center;
+    padding: 20px 0;
+  }
+  .commercial-theme  .jumbotron.home .tm-container .content,
+  .commercial-theme  .jumbotron.home .tm-container .photo {
+    width: 50%;
+    margin: 0;
+  }
+
+  .commercial-theme  .jumbotron.home .tm-container h1{
+    margin-top: 10px;   
+    font-size: 28px;
+    line-height: 40px;    
+  }  
+  .commercial-theme  .jumbotron.home .tm-container .download {
+    margin: 10px 0 10px;
+  }
+  .commercial-theme  .jumbotron.home .tm-container .download a.tm-btn {
+    margin-top: 25px;
+  }
+  @media screen and (-webkit-min-device-pixel-ratio:0) {    
+    .commercial-theme  .jumbotron.home .tm-container h1{
+      margin-top: 0;
+    }
+    .commercial-theme  .jumbotron.home .tm-container .download a.tm-btn {
+      margin-top: 5px;
+    }
+  }
+ 
+  /* Adjust sidenav width */
+  .commercial-theme .bs-docs-sidenav {
+    width: 166px;
+    margin-top: 20px !important;
+  }
+  .commercial-theme .bs-docs-sidenav.affix {
+    top: 0;
+  }
+  .commercial-theme .bs-docs-sidenav.fixed {  
+    position: fixed;
+    top: 0;
+  }
+  .commercial-theme  .bs-docs-example-submenus {
+    min-height: 360px;
+  }
+  .commercial-theme  .multiDirectionDropdowns > div{
+    width: 50%;
+    height: 180px;
+  }
+  /* Examples: Progress bar */
+  .commercial-theme  .bs-docs-example .tm-progress-group .tm-progress {
+    width: 460px;
+  }
+  
+  .commercial-theme  #templates .bootstrap-examples .span3 {
+    min-height: 325px;
+  }
+  
+}
+
+/* Phones to tablets	
+-------------------------*/
+
+@media (max-width: 767px) {
+  /* Remove any padding from the body*/
+  /*body:before {
+    position: absolute;
+    content: "Tablet: max-width: 767px";
+    top:35px;
+    z-index: -1;
+  }*/
+  .commercial-theme   {
+    padding-top: 0;
+  }
+  
+  .commercial-theme  .tm-nav-banner + .tm-navbar-inner .tm-brand b {
+    display: block;
+  }  
+  /* Widen masthead and social buttons to fill body padding */
+  .commercial-theme  .jumbotron {    
+    padding: 10px;
+    margin-top:   0; /* Offset bottom margin on .navbar */
+    margin-right: -10px;
+    margin-left:  -10px;
+  }
+  .commercial-theme  .jumbotron.home .tm-container .content {
+    float: none;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+  .commercial-theme  .jumbotron.home .tm-container .photo {
+    display: none;
+  }
+  .commercial-theme  .jumbotron.home .tm-container {
+    text-align: center;
+    padding: 20px 10px 30px;
+  }
+  .commercial-theme  .jumbotron.home .tm-container h1{
+    text-align: center;
+  }
+  .commercial-theme  section {
+    padding-top: 0px;
+  }
+  .commercial-theme  .tm-container.marketing-container {
+    margin-bottom: 0;
+  }
+  .commercial-theme  .masthead h1 {
+    font-size: 90px;
+  }
+  .commercial-theme  .masthead p,
+  .commercial-theme  .masthead .btn {
+    font-size: 22px;
+  }
+  .commercial-theme  .marketing .span4 {
+    margin-bottom: 70px;
+    text-align: center;
+    padding: 0 40px;
+  }
+  .commercial-theme  .marketing .span4  h4 {
+    margin: 25px 0 15px;
+  }
+  .commercial-theme  .marketing .span4 p {
+    text-align:  center;
+  }
+  .commercial-theme  .bs-docs-social {
+    margin: 0 -20px;
+  }
+
+  /* Space out the show-grid examples*/
+  .commercial-theme  .show-grid [class*="span"] {
+    margin-bottom: 5px;
+  }
+
+  /* Sidenav */
+  .commercial-theme .bs-docs-sidenav {
+    width: auto;
+    margin-bottom: 10px!important;
+    margin-top: 10px !important;
+    
+  }
+  .commercial-theme .bs-docs-sidenav.affix {
+    position: static;
+    width: auto;
+    top: 0;
+  }
+  .commercial-theme .bs-docs-sidenav.fixed {  
+    position: static !important;
+    width: auto !important;
+    top: 0 !important;
+  }
+  .commercial-theme  .bs-docs-example.bs-navbar-responsive-example .tm-navbar .tm-navbar-inner .tm-brand h4  {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .commercial-theme  .bs-docs-example-submenus {
+    min-height: 700px;
+  }
+  .commercial-theme  .multiDirectionDropdowns {
+    width: 162px;
+    margin: 0 auto;
+  }
+  .commercial-theme  .multiDirectionDropdowns > div{
+    width: 100%;
+    height: 180px;
+  }
+  /* Examples: Progress bar */
+  .commercial-theme  .bs-docs-example .tm-progress-group .tm-progress {
+    width: 345px;
+  }
+}
+
+/* Phones portrait/Landscape
+------------------------- */
+@media (max-width: 480px) {
+  /*body:before {
+    position: absolute;
+    content: "Landscape iphone: max-width: 480px";
+    z-index: -1;
+  }*/
+  
+  /* Remove padding above jumbotron */
+  .commercial-theme   {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* Footer */
+  .commercial-theme > .tm-footer {  
+    padding: 0 10px;
+    margin-top: 10px;
+  }
+
+  .commercial-theme > .tm-footer .tm-footer-links .muted {
+    display: none;
+  }
+  /* Change up some type stuff */
+  .commercial-theme  h2 small {
+    display: block;
+  }
+
+  /* Downsize the jumbotrons */
+  .commercial-theme  .jumbotron.home .tm-container {
+    text-align: center;
+    padding: 5px 0 20px;
+  }
+  .commercial-theme  .jumbotron.home .tm-container h1{
+    text-align: center;
+     font-size: 24px;
+  }
+  .commercial-theme  .jumbotron p,
+  .commercial-theme  .jumbotron .tm-btn {
+    font-size: 18px;
+  }
+  .commercial-theme  .jumbotron.home .tm-container .download a.tm-btn {
+    width: auto;
+  }
+  .commercial-theme  .jumbotron .tm-btn {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .commercial-theme  section {
+    padding-top: 0px;
+  } 
+
+  /* Marketing on home */
+  .commercial-theme  .marketing .span4 { 
+    padding: 0;
+  }
+  .commercial-theme  .marketing h1 {
+    font-size: 30px;
+  }
+  .commercial-theme  .marketing-byline {
+    font-size: 18px;
+  }
+
+  /* center example sites */
+  .commercial-theme  .example-sites {
+    margin-left: 0;
+  }
+  .commercial-theme  .example-sites > li {
+    float: none;
+    display: block;
+    max-width: 280px;
+    margin: 0 auto 18px;
+    text-align: center;
+  }
+  .commercial-theme  .example-sites .thumbnail > img {
+    max-width: 270px;
+  }
+
+  /* Do our best to make tables work in narrow viewports */
+  .commercial-theme  table code {
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+
+  /* Examples: dropdowns */
+  .commercial-theme  .bs-docs-example-submenus > .pull-left {
+    float: none;
+    clear: both;
+  }
+  .commercial-theme  .bs-docs-example-submenus > .pull-left,
+  .commercial-theme  .bs-docs-example-submenus > .pull-left + .pull-left {
+    margin-left: 0;
+  }
+  .commercial-theme  .bs-docs-example-submenus p {
+    margin-bottom: 0;
+  }
+  .commercial-theme  .bs-docs-example-submenus .dropup > .dropdown-menu,
+  .commercial-theme  .bs-docs-example-submenus .dropdown > .dropdown-menu {
+    margin-bottom: 10px;
+    float: none;
+    max-width: 180px;
+  }
+
+  /* Examples: modal */
+  .commercial-theme  .modal-example .modal {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+  
+  /* Examples: Progress bar */
+  .commercial-theme  .bs-docs-example .tm-progress-group .tm-progress {
+    width: 200px;
+  }
+  
+}

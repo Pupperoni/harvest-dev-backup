@@ -1,0 +1,110 @@
+<style>
+    .selection{
+        margin-top: 3.5%;
+    }
+    .error_alert{
+        width: 40%;
+    }
+</style>
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="tm-container selection">
+        <div>
+            <div class="image-branding">
+            <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
+        </div>
+        <div class="row-fluid" align="center">
+            <div style="margin-top:20px;">
+                <form method='post'>
+                    {% csrf_token %}
+                    <h6>
+                        Domain Name: 
+                        <select name='domain_id'>
+                            <option value="0">Select Domain</option>
+                            {% for domain in results.all_domains %}
+                                <option value="{{domain.id}}">{{domain.url}}</option>
+                            {% endfor %}
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        Reset Pages:
+                        <select name='reset_pages'>
+                            <option value="-1">Select Amount of Time</option>
+                            <option value="0">Today</option>
+                            <option value="1">Yesterday</option>
+                            <option value="3">Last 3 days</option>
+                            <option value="5">Last 5 days</option>
+                            <option value="7">Last 7 days</option>
+                            <option value="10">Last 10 days</option>
+                            <option value="all">All pages</option>
+                        </select>
+                    </h6>
+                    <div style="margin-right: -42.7%; margin-top: 2%">
+                        <button class="btn">Confirm</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    {% if error %}
+        <center><div class="alert alert-danger alert-dismissible fade in" style="width:60%;margin-top: 5%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ error }}</strong>
+        </div></center>
+    {% elif results.data != None %}
+
+    <div class="tm-container">
+        <div class="row">
+            <div class="span10 offset1">
+                <section id="result">
+                   <div class="page-header" style="margin: 0 0 0 0">
+                        <h3><strong>Domain Name: </strong>{{ results.data.domain.name }}</h3>
+                        <h5><strong>ID:</strong> {{ results.data.domain.id }}</h5>
+                    </div>
+                    <table class="table table-bordered table-striped" id="default-buttons" style="max-width: 1210px">
+                        <thead>
+                            <tr>
+                                <th>PageID</th>
+                                <th>AddedDate</th>
+                                <th>LastChecked</th>
+                                <th>URL</th>
+                                <th>Version</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {% for data in results.data.page %}
+                            <tr>
+                                <td>{{ data.id }}</td>
+                                <td><span class="tm-label tm-label-default no-arrow">{{ data.created }}</span></td>
+                                {% if not data.last_checked %}
+                                    <td><span class="tm-label tm-label-warning no-arrow">{{ data.last_checked }}</span></td>
+                                {% else %}
+                                    <td><span class="tm-label tm-label-default no-arrow">{{ data.last_checked }}</span></td>
+                                {% endif %}
+                                <td>{{ data.url }}</td>
+                                <td>{{ data.version }}</td>
+    
+                                {% if data.status == "Successful" %}
+                                    <td><span class="tm-label tm-label-success no-arrow">{{ data.status }}</span></td>
+                                {% elif data.status == "page_crawler_exception" %}
+                                    <td><span class="tm-label tm-label-error no-arrow">{{ data.status }}</span></td>
+                                {% elif data.status == "Created" %}
+                                    <td><span class="tm-label tm-label-warning no-arrow">{{ data.status }}</span></td>
+                                {% else %}
+                                    <td>{{ data.status }}</td>
+                                {% endif %}
+    
+                            </tr>        
+                        {% endfor %}
+        
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+{% endblock %}

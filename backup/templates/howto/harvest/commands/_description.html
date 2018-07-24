@@ -1,0 +1,47 @@
+{% load static %}
+
+<section id="harvest_commands">
+        <h1>Harvest Commands</h1>
+        <img src="{% static 'img/harvest_commands.png' %}" alt="Harvest Commands"/>
+</section>
+
+<section id="domain_crawler">
+    <div class="page-header">
+        <h1>Domain Crawler</h1>
+    </div>
+    <p>Command used to scrape website and get new/updated application to download.</p>
+
+    {% include "howto/harvest/commands/domain_crawler/index.html" %}
+
+</section>
+
+<section id="rss">
+    <div class="page-header">
+        <h1>Domain Crawler - RSS</h1>
+    </div>
+    <p>Command used to scrape website and get new/updated application to download using RSS feeds.</p>
+
+    {% include "howto/harvest/commands/rss/index.html" %}
+
+</section>
+
+<section id="page_crawler">
+    <div class="page-header">
+        <h1>Page Crawler</h1>
+    </div>
+    <p>Command used to download files from target product page.</p>
+
+    {% include "howto/harvest/commands/page_crawler/index.html" %}
+
+</section>
+
+<section id="other_commands">
+    <div class="page-header">
+        <h1>Other Commands</h1>
+    </div>
+    <p>Basically you can use other Harvest parameter to do some specific tasks.</p>
+
+    {% include "howto/harvest/commands/others/index.html" %}
+
+</section>
+

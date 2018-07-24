@@ -1,0 +1,94 @@
+<h4 id="extract_metadata">Extract metadata</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def extract_metadata(metadata_xpath, url=None,
+                         default="")</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>metadata_pattern</code></td>
+                        <td><code>Dictionary</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Dictionary of metadata to be extracted from content. <code>identifier</code>: <code>value</code> of XPATH.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>url</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Go to page before extracting the metadata.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>default</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Get text using xpath value. Default is "".
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>Dictionary</code></em>
+            <p/>
+
+<pre>
+{
+    "metadata_1": "extracted_value_1",
+    "metadata_2": "extracted_value_2",
+}
+</pre>
+
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+class Tucows(Farmer):
+    ...
+    metadata_xpath = {
+        'release_date': "&lt;xpath here&gt;",
+        'file_size': "&lt;xpath here&gt;",
+        'description': "&lt;xpath here&gt;",
+    }
+    ...
+
+    def run(self):
+        ...
+        target = {}
+        target['metadata'] = self.extract_metadata(self.metadata_xpath)
+        ...
+        self.data.append(target)
+
+        return self.data
+</pre>
+

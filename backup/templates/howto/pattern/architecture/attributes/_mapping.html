@@ -1,0 +1,254 @@
+<h4 id="mapping">Mapping</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+
+<div class="row-fluid">
+    <div class="span10">
+
+        <table class="table table-bordered table-striped" id="default-buttons">
+            <thead>
+                <tr>
+                    <th>Attribute</th>
+                    <th>Data Types</th>
+                    <th>Description</th>
+                    <th>Farmer</th>
+                    <th>Feeds</th>
+                    <th>Page Crawler</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><code>name</code></td>
+                    <td><code>String</code></td>
+                    <td>Name of the pattern. Reflected in Granary (eg. CNET)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>authors</code></td>
+                    <td><code>List</code></td>
+                    <td>Name of the people who created/modified the pattern. Separated by comman (,)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>enabled</code></td>
+                    <td><code>Boolean</code></td>
+                    <td>Determines if the pattern will be executed.</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>date_created</code></td>
+                    <td><code>String</code></td>
+                    <td>Date the pattern created/modified (Format: <code>YYYYMMDD</code>)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>category</code></td>
+                    <td><code>List</code></td>
+                    <td>Category of the site being crawled (Check AC-FIM's masterlist.)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>tags</code></td>
+                    <td><code>List</code></td>
+                    <td>List of details about domain. (eg. Benchmark, AVComparatives)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>frequency</code></td>
+                    <td><code>Integer</code></td>
+                    <td>Interval when the pattern will execute (Format: <code>minutes</code>)</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>priority</code></td>
+                    <td><code>Integer</code></td>
+                    <td>
+                        Priority of the file to be processed in GRID (1 to 7). Default: <code>1</code></td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>start_urls</code></td>
+                    <td><code>String/List</code></td>
+                    <td>URL(s) to be accessed.</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>metadata_xpath</code></td>
+                    <td><code>Dictionary</code></td>
+                    <td>Metadata collection with XPATH value. </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>identifier_xpath</code></td>
+                    <td><code>Dictionary</code></td>
+                    <td>Version XPATH to be used that serve as identifier in Granary.</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>max_page</code></td>
+                    <td><code>Integer</code></td>
+                    <td>The max number of pages the pattern will crawl</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><code>sleep_ceiling</code></td>
+                    <td><code>Integer</code></td>
+                    <td>Ceiling value when using Sleep</td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>order</code></td>
+                    <td><code>Integer</code></td>
+                    <td>Order of pattern is being check in Harvest. Natural sort is boring.</td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label no-arrow">No</span>
+                    </td>
+                    <td>
+                        <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+
+    <div class="span2">
+    </div>
+</div>
+
+<pre class="prettyprint linenums">
+class Softpedia(Feed):
+    # &lt;editor-fold desc="Mandatory Pattern Attributes"&gt;
+    name = "Softpedia" # Name of the site
+    authors = ["Juan Valdez","Kenneth Santos",] # name of devs who created or updated the pattern
+    categories = ["Software Downloads",] # service offered by the site (check AC master list)
+    date_created = "20171003" # date created or last update
+    enabled = True # enable this feed
+    priority = 1 # priority of the site upon processing
+    tags = ["VolumeHTTP", "Aggregate"]
+    # &lt;/editor-fold&gt;
+
+    def __init__(self):
+        Feed.__init__(self)
+        # Location of the feed to be fetched
+        self.downloadurl = [
+            "http://www.softpedia.com/backend.xml",
+        ]
+
+        # Used in creating the file path on disk
+        self.feedname = "Softpedia"
+        # How much time must pass (in minutes) before we update
+        self.frequency = 20
+
+        self.target_options = None
+        self.action_options = None
+</pre>

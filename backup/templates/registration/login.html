@@ -1,0 +1,54 @@
+{% extends "base_login.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="tm-container-fluid">
+    <div class="tm-log-on">
+        <div class="tm-log-on-content">
+            <div class="tm-log-on-description">
+                <p>Trend Micro OfficeSan loream ipsuom dolor sit amet, consectetur adipiscing elit. Wkiet is efegrgf btrer gkergi fwebgrg. Aeneanen accumsan viverra aliquet. Nunc pharetra purus necit sem eleifend consequat.</p>
+                <img src="{% static 'img/harvest_logo_black.png' %}"/>
+            </div>
+            <form method="post" action="{% url 'login' %}">{% csrf_token %}
+                <!--<h5>Log on</h5>-->
+                <br/>
+                <div class="tm-control-group">
+                    <label for="labelUsername">User Name:</label>
+                    <!--<input type="text" class="input-xlarge" id="labelUsername" placeholder="Type user name">-->
+                    {{ form.username }}
+                </div>
+                <div class="tm-control-group">
+                    <label for="labelPassword">Password:</label>
+                    <!--<input type="password" class="input-xlarge" id="labelPassword" placeholder="Type password">-->
+                    {{ form.password }}
+                </div>
+                <div class="tm-control-group">
+                    <button class="tm-btn tm-btn-danger" type="submit">Log in</button>
+
+                    {% if form.errors %}
+                    <p class=" text-danger">Your username and password didn't match. <br/>Please try again.</p>
+                    {% endif %}
+
+
+                    <span class="tm-help-block">
+                      Request for <a href="mailto:al_deleon@trendmicro.com">account?</a>
+                    </span>
+                    <input type="hidden" name="next" value="{{ next }}" />
+
+                    {% if next %}
+                        {% if user.is_authenticated %}
+                        <p>Your account doesn't have access to this page. To proceed,
+                        please login with an account that has access.</p>
+                        {% else %}
+                        <p>Please login to see this page.</p>
+                        {% endif %}
+                    {% endif %}
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div> <!-- /container -->
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="tm-container">
+    <div class="span10 offset3" style="margin: 5% auto;">
+        <div class="row-fluid">
+            <div class="span5 offset3">
+                <h1 style="font:"> Website Verifier </h1><br>
+                <h6>&nbsp; Download URL: &nbsp;
+                    <input name='url' type='text' id='url' style="width:50%;height:10%;margin-bottom:1%">
+                </h6>
+            </div>
+            <div style="margin-top:-2%">
+                <div class="image-branding">
+                <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
+                </div>
+            </div>
+        </div>
+
+        <div class="tm-container" style="position:relative;margin-top:1%;">
+            <div class="span8" id="builder" style="position:relative;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);"></div>
+        </div>
+        <p><br></p>
+            
+        <div id="about-visit">
+            {% if error %}
+            <div class="alert alert-danger alert-dismissible fade in span8 offset2" style="margin-bottom:2%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ message }}</strong>
+            </div>
+            {% elif message %}
+            <div class="alert alert-success alert-dismissible fade in span8 offset2" style="margin-bottom:2%">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ message }}</strong>
+            </div>
+            {% endif %}
+        </div>
+                
+        <form method='post'>
+            {% csrf_token %}
+            <input type="hidden" name="builder-data" id="builder-data"><br>
+            <div style="float:right; margin-right:7%">
+                <button id="submit" class="btn btn-success" style="width:80px;">Test</button>
+            </div>
+        </form>
+
+        <div style="float:right; margin-right:-17%;">
+            <button id="reset" class="btn" style="width:80px;">Reset</button>
+        </div>
+        
+        {% if headers %}
+        <table class="table table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Content-Length</th>
+                        <th>ETag</th>
+                        <th>Content-Type</th>
+                        <th>Last-Modified</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for data in headers %}
+                        <tr>
+                            <td>{{ data.Source }}</td>
+                            <td>{{ data.contentlength }}</td>
+                            <td>{{ data.ETag }}</td>
+                            <td>{{ data.contenttype }}</td>
+                            <td>{{ data.lastmodified }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

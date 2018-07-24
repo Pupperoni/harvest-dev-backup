@@ -1,0 +1,100 @@
+{% load static %}
+
+<div class="jumbotron masthead home">
+    <div class="tm-container">
+        <!--h1>Bootstrap</h1-->
+        <!--h1>Introducing Bootstrap.</h1>
+        <p class="marketing-byline">Need reasons to love Bootstrap? Look no further.</p-->
+
+        <div class="content">
+            <h1 class="slogan"><strong>Welcome {{ user.username|title }}!</strong></h1>
+
+            <div class="row">
+            <div class="span4">
+                <table>
+                    <tr>
+                        <td>User Name:</td>
+                        <td>&nbsp;{{ user.username }}</td>
+                    </tr>
+                    <tr>
+                        <td>Email Address:</td>
+                        <td>&nbsp;{{ user.email }}</td>
+                    </tr>
+                    <tr>
+                        <td>Group:</td>
+                        <td>&nbsp;
+                        {% for tag in user.groups.all %}
+                            <span class="tm-badge tm-badge-inverse">{{ tag }}</span>
+                        {% endfor %}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="span8"></div>
+            </div>
+
+            <p class="download">
+                {% if login %}
+                <a href="{% url 'uploader' %}" class="tm-btn tm-btn-large" onclick="">Upload your pattern</a>
+                {% else %}
+                <a href="#" class="tm-btn tm-btn-large" onclick="" disabled>Upload your pattern</a>
+                {% endif %}
+            </p>
+        </div>
+
+        <div class="photo">
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-md-4">
+                    {% if results.farmer.pass > 0 %}
+                    <div class="tm-panel">
+                        <h6 style="background: #9c0000; color: white">FARMER</h6>
+                        <div class="tm-panel-content" style="background: white">
+                            {% if results.farmer.pass >= 1 and results.farmer.pass < 10 %}
+                            <img src="{% static 'img/badge/harvest_beginner.png' %}"/>
+                            {% elif results.farmer.pass >= 10 and results.farmer.pass < 20 %}
+                            <img src="{% static 'img/badge/harvest_intermidiate.png' %}"/>
+                            {% elif results.farmer.pass >= 20 %}
+                            <img src="{% static 'img/badge/harvest_expert.png' %}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    {% if results.rss.pass > 0 %}
+                    <div class="tm-panel">
+                        <h6 style="background: #9c0000; color: white">RSS</h6>
+                        <div class="tm-panel-content" style="background: white">
+                            {% if results.rss.pass >= 1 and results.rss.pass < 10 %}
+                            <img src="{% static 'img/badge/harvest_beginner.png' %}"/>
+                            {% elif results.rss.pass >= 10 and results.rss.pass < 20 %}
+                            <img src="{% static 'img/badge/harvest_intermediate.png' %}"/>
+                            {% elif results.rss.pass >= 20 %}
+                            <img src="{% static 'img/badge/harvest_expert.png' %}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-4">
+                    {% if results.page_crawler.pass > 0 %}
+                    <div class="tm-panel">
+                        <h6 style="background: #9c0000; color: white">PAGE CRAWLER</h6>
+                        <div class="tm-panel-content" style="background: white">
+                            {% if results.page_crawler.pass >= 1 and results.page_crawler.pass < 10 %}
+                            <img src="{% static 'img/badge/harvest_beginner.png' %}"/>
+                            {% elif results.page_crawler.pass >= 10 and results.page_crawler.pass < 20 %}
+                            <img src="{% static 'img/badge/harvest_intermidiate.png' %}"/>
+                            {% elif results.page_crawler.pass >= 20 %}
+                            <img src="{% static 'img/badge/harvest_expert.png' %}"/>
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

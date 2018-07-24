@@ -1,0 +1,142 @@
+{% load static %}
+
+<section id="structure">
+    <div class="page-header">
+        <h1>Structure</h1>
+    </div>
+
+<pre>
+.
+├── bin
+├── conf
+├── data
+│   ├── feeds
+│   └── html
+│       └── contribution
+├── docs
+│   └── img
+├── lib
+│   └── main
+│       ├── common
+│       └── core
+├── log
+├── modules
+│   ├── farmers
+│   ├── feeds
+│   ├── pagecrawlers
+│   ├── postprocessing
+│   └── processing
+├── storage
+├── test
+├── utils
+└── web
+    ├── dashboard
+    ├── templates
+    │   └── dashboard
+    └── web
+</pre>
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Directory</th>
+                        <th>Sub</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td><code>bin</code></td>
+                        <td></td>
+                        <td>Third-party tool/executable directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>conf</code></td>
+                        <td></td>
+                        <td>Configuration directory.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><code>data</code></td>
+                        <td><code>feeds</code></td>
+                        <td>Temporary storage directory for data feeds.</td>
+                    </tr>
+                    <tr>
+                        <td><code>html</code></td>
+                        <td>Collection of Jinja templates used by Harvest modules.</td>
+                    </tr>
+                    <tr>
+                        <td><code>docs</code></td>
+                        <td></td>
+                        <td>Documentation directory.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><code>lib</code></td>
+                        <td><code>common</code></td>
+                        <td>Common libraries used by Harvest and other existing system.</td>
+                    </tr>
+                    <tr>
+                        <td><code>core</code></td>
+                        <td>Libraries exclusively used by Harvest.</td>
+                    </tr>
+                    <tr>
+                        <td><code>log</code></td>
+                        <td></td>
+                        <td>Log directory.</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="5"><code>modules</code></td>
+                        <td><code>farmers</code></td>
+                        <td>Farmer module pattern directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>feeds</code></td>
+                        <td>RSS Feed module pattern directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>pagecrawlers</code></td>
+                        <td>Page Crawler module pattern directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>postprocessing</code></td>
+                        <td>Post procesing module directory. (S3, VirusTotal, SQS)</td>
+                    </tr>
+                    <tr>
+                        <td><code>processing</code></td>
+                        <td>Processing module directory. (Add Domain, Add page)</td>
+                    </tr>
+                    <tr>
+                        <td><code>storage</code></td>
+                        <td></td>
+                        <td>Local machine storage directory for downloads.</td>
+                    </tr>
+                    <tr>
+                        <td><code>test</code></td>
+                        <td></td>
+                        <td>Test scripts directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>utils</code></td>
+                        <td></td>
+                        <td>Utility script directory.</td>
+                    </tr>
+                    <tr>
+                        <td><code>web</code></td>
+                        <td></td>
+                        <td>Web related directory.</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span2">
+        </div>
+    </div>
+
+</section>
+

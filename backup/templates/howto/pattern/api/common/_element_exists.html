@@ -1,0 +1,80 @@
+<h4 id="element_exists">Element Exists</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<p><span class="tm-label tm-label-info no-arrow"><i class="icon-black icon-info-sign"></i> Fact</span> CzeraldG created this function to check the object if exist prior doing some action. It prevents the pattern from having exception.</p>
+
+<p><strong>Format: </strong><code>def element_exists(self, xpath=None, name=None, id=None)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>xpath</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            check if the element object exist based on XML path.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            check if the element object exist based on HTML name attribute.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            check if the element object exist based on HTML id attribute.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>Boolean</code></em>
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+    xpath = "//*[@id=\"softbrowser\"]/div[@class=\"categories2\"]/div/a"
+    if self.element_exists(xpath=xpath):
+        # recurse over the subcategories
+        self.traverse_categories()
+    else:
+        item_xpath = "//*[@id=\"titles\"]/div/div[1]/a"
+        urls = self.get_url(xpath=item_xpath)
+        for url in urls:
+            self.target_urls.append(url)
+    ...
+</pre>
+

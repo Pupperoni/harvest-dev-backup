@@ -1,0 +1,61 @@
+<h4 id="sleep">Sleep</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>sleep(1, self.sleep_ceiling)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>floor</code></td>
+                        <td><code>Integer</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            starting number for random generation.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>ceiling</code></td>
+                        <td><code>Integer</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            ending number for random generation.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>None</code></em>
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+    self.sleep(1, self.sleep_ceiling)
+    ...
+</pre>
+

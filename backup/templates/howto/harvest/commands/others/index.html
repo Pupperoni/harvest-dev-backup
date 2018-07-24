@@ -1,0 +1,17 @@
+<h4 id="list_all">List all Domains</h4>
+<p>Using the command <code>-l</code> or <code>--list</code>, Harvest will query Granary WS and list available pattern in Production.</p>
+<pre class="prettyprint">
+python Harvest.py --list
+</pre>
+
+<h4 id="pending_download">Get Pending pages for download.</h4>
+<p>Using the command <code>--pending</code>, Harvest will query Granary WS and list all pending product pages for download.</p>
+<pre class="prettyprint">
+python Harvest.py --pending
+</pre>
+
+<h4 id="run_as_client">Run as Client.</h4>
+<p>Using the command <code>--client &lt;seconds_interaval&gt;</code>, Harvest will run as CLIENT to perform task based on received SQS message.</p>
+<pre class="prettyprint">
+python Harvest.py --client &lt;seconds_interaval&gt;
+</pre>

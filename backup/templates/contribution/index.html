@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+{% include "contribution/_banner.html" %}
+<br/>
+<div class="tm-container">
+    {% if results.farmer.data|length > 0 %}
+    {% include "contribution/_contribution_farmer.html" %}
+    {% endif %}
+
+    {% if results.rss.data|length > 0 %}
+    {% include "contribution/_contribution_rss.html" %}
+    {% endif %}
+
+    {% if results.page_crawler.data|length > 0 %}
+    {% include "contribution/_contribution_page_crawler.html" %}
+    {% endif %}
+
+</div>
+{% endblock %}
+

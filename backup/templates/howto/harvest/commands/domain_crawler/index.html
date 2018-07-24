@@ -1,0 +1,17 @@
+<h4 id="default">Default</h4>
+<p>Using the command <code>-d &lt;domain_id&gt;</code> or <code>--domain &lt;domain_id&gt;</code>, Harvest will query Granary WS and perform site crawling.</p>
+<pre class="prettyprint">
+python Harvest.py -d &lt;domain_id&gt;
+</pre>
+
+<h4 id="register">Register Pattern</h4>
+<p>Using the command <code>-r</code> or <code>--register</code>, Harvest will check for newly created pattern in local machine and add this to Granary.</p>
+<pre class="prettyprint">
+python Harvest.py --register;
+</pre>
+
+<h4 id="init_farmer">Initialize Farmer</h4>
+<p>Using the command <code>--init_farmer &lt;name&gt;</code> or <code>--init_farmer=&lt;name&gt;</code>, Harvest will the run the target pattern for the 1st time and add this to Granary.</p>
+<pre class="prettyprint">
+python Harvest.py --init_farmer &lt;name&gt;
+</pre>

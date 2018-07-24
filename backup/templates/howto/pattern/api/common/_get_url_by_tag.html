@@ -1,0 +1,128 @@
+<h4 id="get_url_by">Get URL by Tag</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><span class="tm-label tm-label-error no-arrow"><i class="icon-white icon-exclamation-sign"></i> Obsolete</span> Old function intended for Apple website. Please use Get URL instead. </p>
+
+<p><strong>Format: </strong><code>def get_url_by_tag(tag,
+                       xpath=None, name=None, id=None, className=None,
+                       skip_string=None, skip_string_endswith = None)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>tag</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Extract the URL based on HTML tag.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>xpath</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Get the target object based on XML path.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>name</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Get the target object based on HTML name attribute.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>id</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Get the target object based on HTML id attribute.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>class</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Get the target object based on HTML class attribute.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>skip_string</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Skip the string if having..
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>skip_string_endswith<code></code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Skip the string if ends with..
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>List</code></em>
+            <p/>
+<pre>
+[
+    {
+        "url": "insert url here",
+    }
+]
+</pre>
+
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+    """Get target url"""
+    xpath = "//*[@id=\"results-Support-ul\"]"
+    target_urls = self.get_url_by_tag('a', xpath=xpath,
+                                      skip_string_endswith=(".exe", ".dmg", ".bin", ".zip"))
+
+    ...
+</pre>
+

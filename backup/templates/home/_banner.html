@@ -1,0 +1,46 @@
+{% load static %}
+
+<div class="jumbotron masthead home">
+    <div class="tm-container">
+        <!--h1>Bootstrap</h1-->
+        <!--h1>Introducing Bootstrap.</h1>
+        <p class="marketing-byline">Need reasons to love Bootstrap? Look no further.</p-->
+
+        <div class="content">
+            <h1 class="slogan">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h1>
+            <p class="download">
+                {% if login %}
+                <a href="{% url 'uploader' %}" class="tm-btn tm-btn-large" onclick="">Upload your pattern</a>
+                {% else %}
+                <a href="#" class="tm-btn tm-btn-large" onclick="" disabled>Upload your pattern</a>
+                {% endif %}
+            </p>
+
+            <ul class="masthead-links">
+                <li>
+                    <a href="#" target="_blank" onclick="">HarvestMini</a>
+                </li>
+
+                <li class="divider">|</li>
+
+                <li>
+                    <a href="#" onclick="">HarvestPattern</a>
+                </li>
+
+                <li class="divider">|</li>
+
+                <li>
+                    <a href="#" target="">Harvest Salt Script</a>
+                </li>
+                <!--<li>-->
+                  <!--Version 2.3.1-->
+                <!--</li>-->
+            </ul>
+        </div>
+
+        <div class="photo">
+            <!--<img src="http://commercial-ui.tw.trendnet.org/commercial-bootstrap/assets/img/img_devices.png"/>-->
+            <img src="{% static 'img/harvest_logo.png' %}"/>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,142 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="tester">
+    <div class="container" style="margin-bottom:-1%">
+    <div class="form-container input-files">
+    <div class="row-fluid">
+        <div class="image-branding">
+            <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
+        </div>
+        <form action="" method="post" role="form" class="contactForm">{% csrf_token %}
+        <div class="file-search col-md-8">
+            <div class="input-group">
+                <input type="text" name="domain_name" class="form-control input-lg" id="domain_name" placeholder="Search Domain Name.." data-rule="minlen:2" data-msg="Input domain name"
+                data-provide="typeahead" data-items="4" data-source="{{ results.domain_list }}"/>
+                <span>
+                        <button class="search-button" type="submit">
+                            <span class="fa fa-search"></span>
+                        </button>
+                </span>
+            </div>
+        </div>
+        </form>
+    </div>
+    </div>
+    </div>
+</div>
+
+<br/>
+
+
+{% if error %}
+
+<div class="tm-container"><center>
+    <div class="row-fluid">
+        <div class="alert alert-danger alert-dismissible fade in" style="max-width:46%;margin-top: 8%">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ error }}</strong>
+        </div>
+    </div></center>
+</div>
+{% elif results.data != None %}
+<div class="tm-container">
+    <div class="row">
+        <div class="span10 offset1">
+            <section id="result">
+                <div class="page-header" style="margin-bottom: 0">
+                    <h3><strong>Domain Name: </strong>{{ results.data.domain.name }}</h3>
+                    <h5><strong>ID:</strong> {{ results.data.domain.id }}</h5>
+                </div>
+                <table class="table table-bordered table-striped" id="default-buttons">
+                    <thead>
+                        <tr>
+                            <th>PageID</th>
+                            <th>AddedDate</th>
+                            <th>LastChecked</th>
+                            <th>URL</th>
+                            <th>Version</th>
+                            <th>Status</th>
+                            <th>File Download</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        {% for data in results.data.page %}
+                        <tr>
+                            <td>{{ data.id }}</td>
+                            <td><span class="tm-label tm-label-default no-arrow">{{ data.created }}</span></td>
+                            {% if not data.last_checked %}
+                                <td><span class="tm-label tm-label-warning no-arrow">{{ data.last_checked }}</span></td>
+                            {% else %}
+                                <td><span class="tm-label tm-label-default no-arrow">{{ data.last_checked }}</span></td>
+                            {% endif %}
+                            <td>{{ data.url }}</td>
+                            <td>{{ data.version }}</td>
+
+                            {% if data.status == "Successful" %}
+                                <td><span class="tm-label tm-label-success no-arrow">{{ data.status }}</span></td>
+                            {% elif data.status == "page_crawler_exception" %}
+                                <td><span class="tm-label tm-label-error no-arrow">{{ data.status }}</span></td>
+                            {% elif data.status == "Created" %}
+                                <td><span class="tm-label tm-label-warning no-arrow">{{ data.status }}</span></td>
+                            {% else %}
+                                <td>{{ data.status }}</td>
+                            {% endif %}
+
+                            <td>
+                                {% if data.file_download_meta|length > 0 %}
+                                <!-- <span class="tm-badge tm-badge-success">{{ data.file_download_meta|length }}</span> -->
+                                <span><a href="#" class="view_downloads" id="view-{{data.id}}">View {{ data.file_download_meta|length }} download{% if data.file_download_meta|length > 1 %}s{% endif %}</a>
+                                {% else %}
+                                <span class="tm-badge tm-badge-important">{{ data.file_download_meta|length }}</span>
+                                {% endif %}
+                                
+                            </td>
+
+                        </tr>
+
+                        {% if data.file_download_meta|length > 0 %}
+                        <tr style="background-color:#D6D6D6" class="collapseOne" id="collapse-{{data.id}}">
+                            <td colspan="7" class="panel panel-default clearfix">
+
+                                <table class="table table-bordered small" style="margin-bottom: 0;">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>SHA1</th>
+                                            <th>MD5</th>
+                                            <th>SHA256</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for file_download_meta in data.file_download_meta %}
+                                        <tr>
+                                            <td>{{ file_download_meta.id }}</td>
+                                            <td>{{ file_download_meta.sha1 }}</td>
+                                            <td>{{ file_download_meta.md5 }}</td>
+                                            <td>{{ file_download_meta.sha256 }}</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+
+            </section>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock %}
+

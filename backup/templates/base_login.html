@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Harvest UI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!--[if !IE]> -->
+            <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+        <!-- <![endif]-->
+        <link href="{% static 'css/docs.css' %}" rel="stylesheet">
+        <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-update.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">
+        <link href="{% static 'css/docs-responsive.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-less.less' %}" rel="stylesheet/less">
+        <link href="{% static 'js/google-code-prettify/prettify.css' %}" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <!-- Le fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'ico/logo-apple-touch-icon-144.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'ico/logo-apple-touch-icon-114.png' %}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'ico/logo-apple-touch-icon-72.png' %}">
+        <link rel="shortcut icon" href="{% static 'ico/logo_32.png' %}">
+
+        <link href="{% static 'css/commercial-templates.css' %}" rel="stylesheet">
+        <link href="{% static 'css/commercial-templates-responsive.css' %}" rel="stylesheet">
+
+    </head>
+
+    <body data-spy="scroll" data-target=".bs-docs-sidebar" class="commercial-theme tm-log-on-complex">
+
+
+{% include "navigation.html" %}
+
+{% autoescape on %}
+{% block content %}{% endblock %}
+{% endautoescape %}
+
+{%include "footer.html" %}

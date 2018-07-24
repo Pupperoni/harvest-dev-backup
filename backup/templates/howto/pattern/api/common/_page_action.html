@@ -1,0 +1,136 @@
+<h4 id="page_action">Page Action</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def page_actions(url=None, action=None,
+                     xpath=None, name=None, id=None,
+                     referer=None, user_agent=None)</code></p>
+
+<div class="bs-docs-example">
+    <div class="row-fluid">
+        <div class="tm-alert">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Warning!</strong> When trying to download file using page action (Header, Cooki-Header, Fake-Header), please use
+        <a href="#do_page_action">Do Action Pattern.</a>
+        </div>
+    </div>
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>url</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Target URL
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>action</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Action to perform when accessing the URL.
+                            <p><strong>Options:</strong></p>
+                            <p><code>header</code> - Get the header metadata of the URL.</p>
+                            <p><code>cookie-header</code> - Get the header metadata of the URL. It uses the url stored in cookie cache.</p>
+                            <p><code>fake-header</code> - Generate fake <code>ETag</code>. For direct download.</p>
+                            <p><code>click</code> - Access the url using click command.</p>
+                            <p><code>get</code> - Access the url using driver get.</p>
+                            <p><code>checkbox</code> - Enabled the target checkbox.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>xpath</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Get the target object using XML path.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>referer</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Referrer url that handles Forbidden access (HTTP 403).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>user_agent</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Signal driver to use specific browser <code>{'User-Agent': "Magic Browser"}</code>.
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em> - <code>Dictionary</code> for header, cookie-header, and fake-header</em>
+            <p/>
+
+<pre>
+{
+    "headers": {
+        "Source": "&lt;source danglink&gt;",
+        "Content-Length": &lt;file size&gt;,
+        "ETag": "&lt;ETag value&gt;",
+        "Content-Type": "&lt;content type&gt;",
+        "Last-Modified": "&lt;last modified date&gt;"
+    },
+    "download_path": "&lt;download location path&gt;"
+}
+</pre>
+
+            <em> - <code>None</code> for click, get, and checkbox </em>
+            <p/>
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+    """Semi - do_page_action """
+    results = []
+    for url in download_url:
+        headers = self.page_actions(url, action='header', referer=self.page['url'], user_agent=True)
+        if not headers:
+            log.error("Failed to get header [{}][{}]".format(url, 'header'))
+            continue
+
+        result = self.download_file(headers)
+        if result:
+            results.append(result)
+
+    return results
+</pre>
+

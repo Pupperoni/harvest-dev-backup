@@ -1,0 +1,8 @@
+{% if data.lint|length > 0 %}
+    {% for error in data.lint %}
+    <div class="tm-alert tm-alert-error">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ error }}
+    </div>
+    {% endfor %}
+{% endif %}

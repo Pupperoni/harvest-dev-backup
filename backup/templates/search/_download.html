@@ -1,0 +1,18 @@
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>SHA1</th>
+            <th>MD5</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% file_download_meta in data.file_download_meta %}
+        <tr>
+            <td>{{ file_download_meta.id }}</td>
+            <td>{{ file_download_meta.sha1 }}</td>
+            <td>{{ file_download_meta.md5 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>

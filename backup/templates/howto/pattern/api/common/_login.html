@@ -1,0 +1,109 @@
+<h4 id="login">Login</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def login(self, url, target_pattern_list=[], email_address=None, password=None, login_button=None)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>url</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Login url
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>email_address</code></td>
+                        <td><code>Dictionary</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Get the target input object based on <code>css</code> element and input the corresponding email address <code>value</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>password</code></td>
+                        <td><code>Dictionary</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Get the target input object based on <code>css</code> element and input the corresponding password <code>value</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>login_button</code></td>
+                        <td><code>Dictionary</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Get the target input object based on <code>css</code> element and click the object button.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>target_pattern_list</code></td>
+                        <td><code>List</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            List of diction of action to be done before login.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>None</code></em>
+            <p/>
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    self.key = "RedHatProduct"
+    log.info("Downloading using RedHat - Product crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+
+    """Login"""
+    url = "login url here"
+    self.driver.get(url)
+
+    email_address = {
+        'css': "&lt;search css email address&gt;",
+        'value': "&lt;email address value&gt;"
+    }
+    password = {
+        'css': "&lt;search css password&gt;",
+        'value': "&lt;password value&gt;"
+    }
+    login_button = {
+        'css': "&lt;search css button&gt;",
+    }
+    self.login(url=url, email_address=email_address,
+               password=password, login_button=login_button)
+</pre>
+

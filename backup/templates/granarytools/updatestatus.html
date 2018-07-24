@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class='tm-container'>
+    {% if message %}
+        {{message}}
+    {% else %}
+    <h3>Update Status</h3>
+    <div>
+        <form method='post'>
+            {% csrf_token %}
+            <h6>
+                Domain Name: 
+                <select name='domain_id'>
+                    <option value="0">-- Select Domain --</option>
+                    {% for domain in all_domains %}
+                        <option value="{{domain.id}}">{{domain.url}}</option>
+                    {% endfor %}
+                </select>   
+            </h6>
+            <!-- <div>
+                <h4>Current Status: 
+                <strong>N/A</strong></h4>
+            </div> -->
+            <div>
+                <h6>
+                    New Status: 
+                </h6>
+                <div>
+                    <label><input type='radio' name="status" value='Created'> Created</label>
+                    <label><input type='radio' name="status" value='successful'> Successful</label>
+                    <label><input type='radio' name="status" value='page_crawler_exception'> Error</label>
+                </div>
+            </div>
+            <button type='submit'>Confirm</button>
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+
+{% endblock %}

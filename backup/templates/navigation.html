@@ -1,0 +1,119 @@
+{% load static %}
+
+<div class="tm-navbar tm-navbar-static-top" id="page-navbar">
+    <div class="tm-nav-banner">
+        <div class="tm-container">
+            <div class="tm-brand">
+                <a href="javascript:;"><img src="{% static 'img/product_banner.png' %}"/><h4>Harvest UI</h4></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="tm-navbar-inner">
+        <div class="tm-container">
+            <button type="button" class="tm-btn tm-btn-navbar" data-toggle="collapse" data-target=".tm-nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="tm-brand" href="#"><img src="{% static 'img/ico_nav_tball.png' %}"/><h5>Project name</h5></a>
+            <div class="tm-nav-collapse collapse">
+                <ul class="tm-nav">
+                    {% if navigation == "home" %}
+                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                    {% else %}
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    {% endif %}
+
+                    <li class="tm-divider-vertical"></li>
+                    {% if navigation == "howto" %}
+                    <li class="dropdown active">
+                    {% else %}
+                    <li class="dropdown">
+                    {% endif %}
+                        <a href="#" class="tm-dropdown-toggle" data-toggle="dropdown">How-To <b class="caret"></b></a>
+                        <ul class="tm-dropdown-menu">
+                            <li class="tm-nav-header">Harvest</li>
+                            <li><a href="{% url 'harvest_commands' %}"> Harvest Commands</a></li>
+                            <li><a href="{% url 'harvest_directory_structure' %}"> Harvest Directory Structure</a></li>
+
+                            <li class="tm-divider"></li>
+
+                            <li class="tm-nav-header">Pattern</li>
+                            <li><a href="{% url 'pattern_architecture' %}">Pattern Architecture</a></li>
+                            <li><a href="{% url 'pattern_api' %}">Pattern APIs</a></li>
+                            <li><a href="{% url 'pattern_sample' %}">Sample Patterns</a></li>
+
+                            <li class="tm-divider"></li>
+
+                            <li class="tm-nav-header">Deployment</li>
+                            <li><a href="{% url 'autodeploy_salt' %}">Salt</a></li>
+                        </ul>
+                    </li>
+
+                    {% if login %}
+
+                    <li class="tm-divider-vertical"></li>
+
+                    <li class="tm-divider-vertical"></li>
+                    <li><a href="{% url 'search' %}">Search Pattern</a></li>
+                    <li class="tm-divider-vertical"></li>
+
+
+                    <li class="tm-divider-vertical"></li>
+                    <li><a href="{% url 'uploader' %}">Upload Pattern</a></li>
+                    <li class="tm-divider-vertical"></li>
+                    {% endif %}
+
+                    <li class="tm-divider-vertical"></li>
+                    {% if navigation == "contact" %}
+                    <li class="active"><a href="{% url 'contact' %}">Contact</a></li>
+                    {% else %}
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    {% endif %}
+                    <li class="tm-divider-vertical"></li>
+
+                    {% comment %}
+                    <li class="tm-divider-vertical"></li>
+                    <li><a href="{% url 'tester' %}">Test your pattern</a></li>
+                    <li class="tm-divider-vertical"></li>
+                    {% endcomment %}
+
+                    <li class="tm-divider-vertical"></li>
+                    {% if login %}
+                    <li class="dropdown">
+                        <a href="#" class="tm-dropdown-toggle" data-toggle="dropdown">Granary Tools<b class="caret"></b></a>
+                        <ul class="tm-dropdown-menu">
+                            <li><a href="{% url 'domainList' %}">Domain List</a></li>
+                            <li><a href="{% url 'pending' %}">Pending Downloads</a></li>
+                            {% comment %} <li><a href="{% url 'update' %}">Update Status</a></li> {% endcomment %}
+                            <li><a href="{% url 'reset' %}">Reset Pages</a></li>
+                            <li><a href="{% url 'verify' %}">File Download Verifier</a></li>
+                        </ul>
+                    </li>
+                    <li class="tm-divider-vertical"></li>
+                    {% endif %}
+                </ul>
+
+                {% if login %}
+                <ul class="tm-nav" style="float:right">
+                    <li class="dropdown" style="width:160px;">
+                        <a href="#" class="tm-dropdown-toggle" data-toggle="dropdown" style="font-size:14px">&nbsp;&nbsp;&nbsp;<img src="{% static 'img/icon_new.png' %}" style="width: 26px; margin-top: -6.5%">&nbsp;&nbsp;&nbsp;&nbsp;{{ request.user|title }} &nbsp;<b></b></a>
+                        <ul class="tm-dropdown-menu">
+                            <li class="tm-nav-header">Pattern</li>
+                            <li><a href="{% url 'contribution' %}">Pattern Contribution</a></li>
+
+                            <li class="tm-divider"></li>
+                            <li><a href="{% url 'logout' %}">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                {% else %}
+                <ul class="tm-nav" style="float:right">
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                </ul>
+                {% endif %}
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>

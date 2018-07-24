@@ -1,0 +1,93 @@
+<div class="row-fluid">
+    <div class="span8">
+
+        <p>1. Create pattern under <code>{PROJECT_ROOT}/modules/pagecrawlers/</code>. Format: <code>(domain).py</code></p>
+
+        <p>2. Import PageCrawler abstract and python logging library.</p>
+<pre>
+import logging
+log = logging.getLogger(__name__)
+
+from lib.main.common.abstracts import PageCrawler
+</pre>
+
+        <p>3. Set the pattern details.</p>
+<pre>
+class ClassName(PageCrawler):
+    # &lt;editor-fold desc="Mandatory Pattern Attributes"&gt;
+    name = "&lt;name&gt;" # Name of the site
+    authors = ["&lt;authors&gt;", ] # name of devs who created or updated the pattern
+    date_created = "&lt;date&gt;" # date created or last update
+    enabled = &lt;enabled&gt; # enable this farmer
+    order = &lt;order&gt; # order the data when crawling
+    sleep_ceiling = &lt;sleep_ceiling&gt; # max sleep for this farmer
+    tags = ["&lt;tags&gt;",]
+    # &lt;/editor-fold&gt;
+</pre>
+
+        <p>4. Set the pattern key. For the Harvest processing module to evaluate the output of the pattern.</p>
+<pre>
+    def run(self):
+        self.key = "&lt;name&gt;"
+        log.info("Downloading using MajorGeeks crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+</pre>
+
+        <p>5. Now you can add the patter logic to download the file from the product page. Harvest stores the page information under <code>self.page</code></p>
+<pre id="page_crawler_pattern">
+    def run(self):
+        self.key = "MajorGeeks"
+        log.info("Downloading using MajorGeeks crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+
+        self.driver.get(self.page['url'])
+        ...
+        # Target action here
+        ...
+        return self.download_from_multiple_url(download_url=mirror_urls, pattern_list=pattern_list,
+                                        tag="href", size_validation=True)
+</pre>
+
+        <ul class="tm-nav tm-nav-list tm-nav-nested-list">
+            <li>
+                <a href="#" data-toggle="tm-nav-nested-list" class="collapsed">See pattern here<span class="caret"></span></a>
+                <ul class="tm-nav tm-nav-list collapse">
+                    <li>
+
+<pre class="prettyprint">
+import logging
+log = logging.getLogger(__name__)
+
+from lib.main.common.abstracts import PageCrawler
+
+class ClassName(PageCrawler):
+    # &lt;editor-fold desc="Mandatory Pattern Attributes"&gt;
+    name = "&lt;name&gt;" # Name of the site
+    authors = ["&lt;authors&gt;", ] # name of devs who created or updated the pattern
+    date_created = "&lt;date&gt;" # date created or last update
+    enabled = &lt;enabled&gt; # enable this farmer
+    order = &lt;order&gt; # order the data when crawling
+    sleep_ceiling = &lt;sleep_ceiling&gt; # max sleep for this farmer
+    tags = ["&lt;tags&gt;",]
+    # &lt;/editor-fold&gt;
+
+    def run(self):
+        self.key = "MajorGeeks"
+        log.info("Downloading using MajorGeeks crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+
+        self.driver.get(self.page['url'])
+        ...
+        # Target action here
+        ...
+        return self.download_from_multiple_url(download_url=mirror_urls, pattern_list=pattern_list,
+                                        tag="href", size_validation=True)
+</pre>
+
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+    </div>
+
+    <div class="span4">
+    </div>
+</div>

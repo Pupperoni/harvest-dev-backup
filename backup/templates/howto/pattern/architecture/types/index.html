@@ -1,0 +1,35 @@
+{% load static %}
+
+<div id="types" class="row-fluid">
+    <div id="domain_crawler" class="span3 offset2">
+        <img src="{% static 'img/harvest_domain_crawler.png' %}"/>
+        <h4><strong>Domain Crawler</strong></h4>
+        <p><small>Pattern that will crawl the page to get the product page.</small></p>
+        <p/>
+        <p><strong>Input:</strong>Target domain</p>
+        <p><strong>Output:</strong>Product page(s)</p>
+    </div>
+
+    <div id="page_crawler" class="span3 offset2">
+        <img src="{% static 'img/harvest_page_crawler.png' %}"/>
+        <h4><strong>Page Crawler</strong></h4>
+        <p><small>Pattern that will crawl the page to get the direct download link.</small></p>
+        <p/>
+        <p><strong>Input:</strong>Product Page</p>
+        <p><strong>Output:</strong>Download file(s)</p>
+    </div>
+</div>
+
+<br/>
+
+<div class="row-fluid">
+    <div id="farmer" class="span1 offset1">
+        <img src="{% static 'img/harvest_farmer.png' %}"/>
+        <h6><strong>Farmer</strong></h6>
+    </div>
+
+    <div id="rss" class="span1 offset2">
+        <img src="{% static 'img/harvest_rss.png' %}"/>
+        <h6><strong>RSS</strong></h6>
+    </div>
+</div>

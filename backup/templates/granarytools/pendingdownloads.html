@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+    <div class="tm-container responsive">
+        <div style="box-sizing: border-box; margin: 3.7% auto 3.5% auto; max-width: 1210px;">
+            <div>
+                <div class="image-branding">
+                    <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
+                </div>
+                <div class="file-search col-md-8">
+                    <div class="input-group">
+                        <input class="form-control input-lg" id="search_input" onkeyup="function()" placeholder="Search" title="Looking for something?" style="width: 60%;height: 4%;padding: 18px;border: 1px solid #ddd;margin-bottom: 15px;">
+                        <!-- <span style="margin-top:0.5%">
+                            <button class="search-button">
+                                <span class="fa fa-search"></span>
+                            </button>
+                        </span> -->
+                    </div>
+                </div>
+                <table id="pending_table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%">
+                    <thead class="thead-light" style="cursor: pointer;">
+                        <tr>
+                            <th style="width:10%;">ID <i class="fa fa-fw fa-sort"></i></th>
+                            <th style="width:70%;">Domain Name <i class="fa fa-fw fa-sort"></i></th>
+                            <th style="width:20%;">Pending Downloads <i class="fa fa-fw fa-sort"></i></th>
+                        </tr> 
+                    </thead>
+                    <tbody id= "search_table">
+                        {% for page in pages %}
+                            <tr>
+                                <td>{{page.domainId}}</td>
+                                <td>{{page.domainName}}</td>
+                                <td>{{page.cnt}}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

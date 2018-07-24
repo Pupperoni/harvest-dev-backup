@@ -1,0 +1,119 @@
+<h4 id="_download_from_multiple_url">Download from Multiple URL</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def download_from_multiple_url(download_url = [], pattern_list=[],
+                                   tag="href", size_validation=True,
+                                   url=False)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>download_url</code></td>
+                        <td><code>List</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            List of urls to be downloaded.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>pattern_list</code></td>
+                        <td><code>List</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            List of pattern action to be use to download the file.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>tag</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Extract the url from target tag. Default target href
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>size_validation</code></td>
+                        <td><code>Bolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Validate the file size of the downloaded file. Default <code>True</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>url</code></td>
+                        <td><code>Boolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Update this information AL. PARA SAAN TO ULI!
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>List</code></em>
+            <p/>
+
+<pre>
+[
+    {
+    "download_path": "&lt;file location&gt;",
+    "headers": {},
+    },
+    {
+        "download_path": "&lt;file location&gt;",
+        "headers": {},
+    }
+]
+</pre>
+
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+    xpath = "&lt;xpath here&gt;"
+    target_urls = self.get_url(xpath=xpath)
+    ...
+
+    """Pattern list for Softpedia download"""
+    pattern_list = [
+        {
+            "xpath": "&lt;xpath here&gt;",
+            "action": "&lt;page action&gt;",
+        }
+    ]
+    return self.download_from_multiple_url(download_url=target_urls, pattern_list=pattern_list,
+                                    tag="href", size_validation=True, url=True)
+</pre>
+

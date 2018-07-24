@@ -1,0 +1,66 @@
+<h4 id="do_target_pattern">Do Target Pattern</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def do_target_pattern(pattern_list=[])</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>pattern_list</code></td>
+                        <td><code>List</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            List of action to be perform before downloading the file.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>None</code></em>
+            <p/>
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    self.key = "Top4Download"
+    log.info("Downloading using Top4Download crawler. Page [{}][{}]".format(self.page['url'], self.page['id']))
+
+    self.driver.get(self.page['url'])
+
+    """Sleep pattern"""
+    self.sleep(5, self.sleep_ceiling)
+
+    """Target pattern"""
+    pattern_list = [
+        {
+            "xpath": "&lt;xpath here&gt;",
+            "action": "&lt;page action here&gt;",
+        }
+    ]
+
+    self.do_target_pattern(pattern_list=pattern_list)
+</pre>
+

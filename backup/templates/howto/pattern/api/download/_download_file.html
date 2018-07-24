@@ -1,0 +1,95 @@
+<h4 id="download_file">Download File</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+
+<p><strong>Format: </strong><code>def download_file(headers, size_validation=True, referer=None, user_agent=None)</code></p>
+
+<div class="bs-docs-example">
+
+    <div class="row-fluid">
+        <div class="span8">
+
+            <table class="table table-bordered table-striped" id="default-buttons">
+                <thead>
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Data Type</th>
+                        <th>Required</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>header</code></td>
+                        <td><code>Dictionary</code></td>
+                        <td>
+                            <span class="tm-label tm-label-inverse no-arrow">Yes</span>
+                        </td>
+                        <td>
+                            Header metadata of the target file.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>size_validation</code></td>
+                        <td><code>Bolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Validate the file size of the downloaded file. Default <code>True</code>.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>referer</code></td>
+                        <td><code>String</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Referrer url that handles Forbidden access (HTTP 403).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>user_agent</code></td>
+                        <td><code>Bolean</code></td>
+                        <td>
+                            <span class="tm-label no-arrow">Optional</span>
+                        </td>
+                        <td>
+                            Signal driver to use specific browser <code>{'User-Agent': "Magic Browser"}</code>.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div class="span4">
+
+            <b class="label">Return Data:</b>
+            <em><code>Dictionary</code></em>
+            <p/>
+
+<pre>
+{
+    "download_path": "&lt;file location&gt;",
+    "headers": {},
+}
+</pre>
+
+        </div>
+    </div>
+
+</div>
+
+<pre class="prettyprint linenums">
+def run(self):
+    ...
+        headers = self.page_actions(url, action='header')
+
+        result = self.download_file(headers)
+        if result:
+            results.append(result)
+
+    return results
+</pre>
+
