@@ -22,6 +22,8 @@
 <script>
     // the entire list of domains
     let domainlist = {{domains|safe}};
+    let activebutton = 0;
+    let pagebtnmax = 5;
     // the max amount of rows displayed on the page
     let maxdata = 10;
     // counts how many pages are needed
@@ -32,24 +34,75 @@
     // adds rows into a table
     function create_table_body(startindex){
         // number of rows to be added to the table body
-        let pagedatamax =(startindex / maxdata + 1 == pages)?(domainlist.length - startindex):maxdata;
+        let pagedatamax = (startindex / maxdata + 1 == pages)?(domainlist.length - startindex):maxdata;
         for(let index = startindex; index < startindex + pagedatamax; index++){
             let entry = "<tr><td>"+domainlist[index].id+"</td><td>"+domainlist[index].url+"</td></tr>";
             body.append(entry);
         }
+        
     }
 
-    $(document).ready(function(){
-        // create the pagination buttons
-        for(let index = 0; index < pages; index++){
-            let pagebtn = $("<li><button class='btn'>"+(index+1)+"</button></li>").click(function(){
+    // generate pagination buttons
+    function create_pagination_buttons(){
+        // create previous button
+        let prev = $("<li><button class='page-btn'>&laquo;</a></li>").click(function(){
+                if(activebutton != 1){
+                    $('#paginating-table tbody tr').remove();
+                    activebutton --;
+                    create_table_body(activebutton*maxdata);
+                }
+            });
+        $('#pagination-buttons ul').append(prev);
+        // create numbered buttons
+        if(activebutton > 4){
+            let pagebtn = $("<li><button class='page-btn'>1</button></li>").click(function(){
                 $('#paginating-table tbody tr').remove();
-                create_table_body(index*maxdata);
+                activebutton = 0;
+                create_table_body(activebutton*maxdata);
+            });
+            $('#pagination-buttons ul').append(pagebtn);
+            $('#pagination-buttons ul').append($("<li><a class='page-btn'>...</button></li>"));
+            for(let index = activebutton-2; index < activebutton+3>=pages?pages:activebutton+3; index++){
+                let pagebtn = $("<li><button class='page-btn'>"+(index+1)+"</button></li>").click(function(){
+                    $('#paginating-table tbody tr').remove();
+                    activebutton = index;
+                    create_table_body(index*maxdata);
+                });
+                $('#pagination-buttons ul').append(pagebtn);
+            }
+            if(activebutton+3<pages){
+                $('#pagination-buttons ul').append($("<li><a class='page-btn'>...</button></li>"));
+                let pagebtn = $("<li><button class='page-btn'>"+(pages+1)+"</button></li>").click(function(){
+                    $('#paginating-table tbody tr').remove();
+                    activebutton = pages;
+                    create_table_body(activebutton*maxdata);
+                });
+                $('#pagination-buttons ul').append(pagebtn);
+            }
+        }
+        else{
+            for(let index = 0; index < activebutton+3>=pages?pages:activebutton+3; index++){
+                let pagebtn = $("<li><button class='page-btn'>"+(index+1)+"</button></li>").click(function(){
+                    $('#paginating-table tbody tr').remove();
+                    activebutton = index;
+                    create_table_body(index*maxdata);
+                });
+                $('#pagination-buttons ul').append(pagebtn);
+            }
+            $('#pagination-buttons ul').append($("<li><a class='page-btn'>...</button></li>"));
+            let pagebtn = $("<li><button class='page-btn'>"+(pages+1)+"</button></li>").click(function(){
+                $('#paginating-table tbody tr').remove();
+                activebutton = pages;
+                create_table_body(activebutton*maxdata);
             });
             $('#pagination-buttons ul').append(pagebtn);
         }
+    }
+
+    $(document).ready(function(){
         // initialize the table
-        create_table_body(0);
+        create_pagination_buttons();
+        create_table_body(activebutton);
     });
 
 
