@@ -10,16 +10,50 @@
 
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 
-
-
 <script src="{% static 'js/bootstrap.js' %}"></script>
 <script src="{% static 'js/google-code-prettify/prettify.js' %}"></script>
 <script src="{% static 'js/application.js' %}"></script>
 <script src="{% static 'js/query-builder.standalone.js' %}"></script>
 <script src="{% static 'js/pattern-tester.js' %}"></script>
+<script src="{% static 'js/pagination.min.js' %}"></script>
 
 <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script> <!-- for sorting table-->
 
+<script>
+    // the entire list of domains
+    let domainlist = {{domains|safe}};
+    // the max amount of rows displayed on the page
+    let maxdata = 10;
+    // counts how many pages are needed
+    let pages = Math.ceil(domainlist.length / maxdata);
+    // element where we add the rows
+    let body = $("#paginating-table tbody");
+
+    // adds rows into a table
+    function create_table_body(startindex){
+        // number of rows to be added to the table body
+        let pagedatamax =(startindex / maxdata + 1 == pages)?(domainlist.length - startindex):maxdata;
+        for(let index = startindex; index < startindex + pagedatamax; index++){
+            let entry = "<tr><td>"+domainlist[index].id+"</td><td>"+domainlist[index].url+"</td></tr>";
+            body.append(entry);
+        }
+    }
+
+    $(document).ready(function(){
+        // create the pagination buttons
+        for(let index = 0; index < pages; index++){
+            let pagebtn = $("<li><button class='btn'>"+(index+1)+"</button></li>").click(function(){
+                $('#paginating-table tbody tr').remove();
+                create_table_body(index*maxdata);
+            });
+            $('#pagination-buttons ul').append(pagebtn);
+        }
+        // initialize the table
+        create_table_body(0);
+    });
+
+
+</script>
 
 <script>
     $(document).ready(function(){

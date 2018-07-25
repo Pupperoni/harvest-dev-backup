@@ -50,7 +50,6 @@
                             <li><a href="{% url 'autodeploy_salt' %}">Salt</a></li>
                         </ul>
                     </li>
-
                     {% if login %}
 
                     <li class="tm-divider-vertical"></li>
@@ -98,7 +97,7 @@
                 {% if login %}
                 <ul class="tm-nav" style="float:right">
                     <li class="dropdown" style="width:160px;">
-                        <a href="#" class="tm-dropdown-toggle" data-toggle="dropdown" style="font-size:14px">&nbsp;&nbsp;&nbsp;<img src="{% static 'img/icon_new.png' %}" style="width: 26px; margin-top: -6.5%">&nbsp;&nbsp;&nbsp;&nbsp;{{ request.user|title }} &nbsp;<b></b></a>
+                        <a href="#" class="tm-dropdown-toggle" data-toggle="dropdown" style="font-size:14px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="{% static 'img/icon_new.png' %}" style="width: 26px; margin-top: -6.5%">&nbsp;&nbsp;&nbsp;&nbsp;{{ request.user|title }} &nbsp;<b></b></a>
                         <ul class="tm-dropdown-menu">
                             <li class="tm-nav-header">Pattern</li>
                             <li><a href="{% url 'contribution' %}">Pattern Contribution</a></li>
@@ -113,7 +112,7 @@
                     <li><a href="{% url 'login' %}">Login</a></li>
                 </ul>
                 {% endif %}
-            </div><!--/.nav-collapse -->
+            </div>
         </div>
     </div>
 </div>

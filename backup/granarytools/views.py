@@ -259,7 +259,13 @@ def updateStatus(request):
 def domainList(request):
     gran = Granary()
     domain_list = gran.get_domain_list()
+    """Restructure dictionary"""
+    domains = []
+    for domain in domain_list:
+        domains.append({"id":domain['id'], "url":domain['url'].encode('utf-8')})
+        
+
     return render(request,'granarytools/domains.html', {
-                                'domains':domain_list,
+                                'domains':domains,
                                 'login': request.user.is_authenticated()
                                 })

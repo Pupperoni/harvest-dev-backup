@@ -7,7 +7,7 @@
         <div class="image-branding">
             <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
         </div>
-        <div class="file-search col-md-8">
+        {% comment %} <div class="file-search col-md-8">
                 <div class="input-group">
                     <input class="form-control input-lg" id="search_input" onkeyup="function()" placeholder="Search" title="Looking for something?" style="width: 60%;height: 4%;padding: 18px;border: 1px solid #ddd;margin-bottom: 15px;">
                     <!-- <span style="margin-top:0.5%">
@@ -16,8 +16,8 @@
                         </button>
                     </span> -->
                 </div>
-            </div>
-        <table id="pending_table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+            </div> {% endcomment %}
+        {% comment %} <table id="pending_table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
             <thead class="thead-light" style="cursor: pointer;">
                 <tr>
                     <th style="width:15%;">ID <i class="fa fa-fw fa-sort"></i></th>
@@ -32,7 +32,23 @@
                     </tr>
                 {% endfor %}
             </tbody>
+        </table> {% endcomment %}
+
+
+        <table id="paginating-table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+            <thead class="thead-light" style="cursor: pointer;">
+                <tr>
+                    <th style="width:15%;">ID </i></th>
+                    <th>Domain Name </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
         </table>
+        
+        <div id="pagination-buttons">
+            <ul class="pagination"></ul>
+        </div>
+      
     </div>
 </div>
 
