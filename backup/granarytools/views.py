@@ -48,6 +48,7 @@ def verifySite(request):
                 }
             )
         
+        """Create list with same format as pattern list in Harvest"""
         pattern_list_meta = pattern_data['rules']
         for item in pattern_list_meta:
             pattern_item = {}
