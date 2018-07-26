@@ -27,7 +27,6 @@ class conditional_login_required(object):
 
 @conditional_login_required(login_required, settings.WEB_AUTHENTICATION)
 def index(request):
-
     domain_list = granary_obj.get_domain_list()
     if not domain_list:
         domain_list = []
