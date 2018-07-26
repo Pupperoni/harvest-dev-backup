@@ -34,21 +34,25 @@
             </tbody>
         </table> {% endcomment %}
 
-
-        <table id="paginating-table" class="table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
-            <thead>
-                <tr>
-                    <th style="width:15%;">ID </i></th>
-                    <th>Domain Name </th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
-        
-        <div id="pagination-buttons" style="float:right;border-style:hidden;border-radius:5px;">
-            <ul class="pagination"></ul>
+        {% if domains %}
+            <table id="paginating-table" class="table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+                <thead>
+                    <tr>
+                        <th style="width:15%;">ID </i></th>
+                        <th>Domain Name </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="pagination-buttons" style="float:right;border-style:hidden;border-radius:5px;">
+                <ul class="pagination"></ul>
+            </div>
+        {% else %}
+        <div class="alert alert-danger alert-dismissible fade in span5 offset2" style="margin-bottom:2%;margin-top: 10%">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Domain List is empty</strong>
         </div>
-      
+        {% endif %}
     </div>
 </div>
 

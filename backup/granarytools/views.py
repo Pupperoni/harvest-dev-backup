@@ -261,9 +261,9 @@ def domainList(request):
     domain_list = gran.get_domain_list()
     """Restructure dictionary"""
     domains = []
-    for domain in domain_list:
-        domains.append({"id":domain['id'], "url":domain['url'].encode('utf-8')})
-        
+    if domain_list:
+        for domain in domain_list:
+            domains.append({"id":domain['id'], "url":domain['url'].encode('utf-8')})
 
     return render(request,'granarytools/domains.html', {
                                 'domains':domains,
