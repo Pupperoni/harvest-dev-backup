@@ -48,13 +48,6 @@
 
 
     function getPageList(totalPages, page, maxLength){
-        if(totalPages <= maxLength){
-            let pagelist = [];
-            for(let i = 1; i < totalPages+1; i++){
-                pagelist.push(i);
-            }
-            return pagelist;
-        };
 
         function range(start, end) {
             return Array.from(Array(end - start + 1), (_, i) => i + start); 
