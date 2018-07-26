@@ -79,8 +79,7 @@
             .concat([0])
             .concat(range(totalPages-sideWidth+1, totalPages));    
 
-    }
-    
+    } 
 
     // generate pagination buttons
     function create_pagination_buttons(){
@@ -96,6 +95,13 @@
 
             $('#pagination-buttons ul').append(prev);
         }
+        else{
+            let prev = $("<li><button class='page-btn' disabled>&laquo;</button></li>").click(function(){
+                activebutton --;
+                create_table_body((activebutton-1)*maxdata);
+            });
+            $('#pagination-buttons ul').append(prev);
+        }
 
         // create numbered buttons
         let pagebtnslist = getPageList(pages, activebutton, pagebtnmax);
@@ -106,17 +112,34 @@
                 $('#pagination-buttons ul').append(ellipsis);
             }
             else{
-                let pagebtn = $("<li><button class='page-btn'>"+pagebtnslist[i]+"</button></li>").click(function(){
-                    activebutton = pagebtnslist[i];
-                    create_table_body((activebutton-1)*maxdata);
-                });
-                $('#pagination-buttons ul').append(pagebtn);
+                if(pagebtnslist[i] == activebutton){
+                    let pagebtn = $("<li><button class='page-btn' style='color:#FFF;background-color:#e62b2b;'>"+pagebtnslist[i]+"</button></li>").click(function(){
+                        activebutton = pagebtnslist[i];
+                        create_table_body((activebutton-1)*maxdata);
+                    });
+                    $('#pagination-buttons ul').append(pagebtn);
+                }
+                else{
+                    let pagebtn = $("<li><button class='page-btn'>"+pagebtnslist[i]+"</button></li>").click(function(){
+                        activebutton = pagebtnslist[i];
+                        create_table_body((activebutton-1)*maxdata);
+                    });
+                    $('#pagination-buttons ul').append(pagebtn);
+                }
+                
             }
         }
         
         // create next button
         if(activebutton != pages){
             let next = $("<li><button class='page-btn'>&raquo;</button></li>").click(function(){
+                activebutton ++;
+                create_table_body((activebutton-1)*maxdata);
+            });
+            $('#pagination-buttons ul').append(next);
+        }
+        else{
+            let next = $("<li><button class='page-btn' disabled>&raquo;</button></li>").click(function(){
                 activebutton ++;
                 create_table_body((activebutton-1)*maxdata);
             });
