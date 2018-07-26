@@ -115,7 +115,7 @@ def pendingDownloads(request):
 
     return render(request, 'granarytools/pendingDownloads.html',
                 {
-                    'pages': pages,
+                    'domains': pages,
                     "login": request.user.is_authenticated()
                 }
             )

@@ -112,7 +112,7 @@
                 $('#pagination-buttons ul').append(ellipsis);
             }
             else{
-                if(pagebtnslist[i] == activebutton){
+                if(pagebtnslist[i] == activebutton){ // add a little flair to the active button so everyone knows what not to click
                     let pagebtn = $("<li><button class='page-btn' style='color:#FFF;background-color:#e62b2b;'>"+pagebtnslist[i]+"</button></li>").click(function(){
                         activebutton = pagebtnslist[i];
                         create_table_body((activebutton-1)*maxdata);
@@ -126,7 +126,6 @@
                     });
                     $('#pagination-buttons ul').append(pagebtn);
                 }
-                
             }
         }
         
@@ -151,7 +150,6 @@
         // initialize the table
         create_table_body(activebutton-1);
     });
-
 
 </script>
 

@@ -27,7 +27,7 @@
                         </tr> 
                     </thead>
                     <tbody id= "search_table">
-                        {% for page in pages %}
+                        {% for page in domains %}
                             <tr>
                                 <td>{{page.domainId}}</td>
                                 <td>{{page.domainName}}</td>
@@ -36,6 +36,26 @@
                         {% endfor %}
                     </tbody>
                 </table>
+            <!-- {% if domains %}
+            <table id="paginating-table" class="table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+                <thead>
+                    <tr>
+                        <th style="width:10%;">ID <i class="fa fa-fw fa-sort"></i></th>
+                        <th style="width:70%;">Domain Name <i class="fa fa-fw fa-sort"></i></th>
+                        <th style="width:20%;">Pending Downloads <i class="fa fa-fw fa-sort"></i></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+            <div id="pagination-buttons" style="float:right">
+                <ul class="pagination"></ul>
+            </div>
+        {% else %}
+        <div class="alert alert-danger alert-dismissible fade in span5 offset2" style="margin-bottom:2%;margin-top: 10%">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>Domain List is empty</strong>
+        </div>
+        {% endif %} -->
             </div>
         </div>
     </div>
