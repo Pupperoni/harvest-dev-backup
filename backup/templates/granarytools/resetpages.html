@@ -26,15 +26,15 @@
                                 <option value="{{domain.id}}">{{domain.url}}</option>
                             {% endfor %}
                         </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Reset Pages:
+                        Reset Recently Added Pages:
                         <select name='reset_pages'>
-                            <option value="-1">Select Amount of Time</option>
+                            <option value="-1">Select Time Added</option>
                             <option value="0">Today</option>
                             <option value="1">Yesterday</option>
-                            <option value="3">Last 3 days</option>
-                            <option value="5">Last 5 days</option>
-                            <option value="7">Last 7 days</option>
-                            <option value="10">Last 10 days</option>
+                            <option value="3">3 days ago</option>
+                            <option value="5">5 days ago</option>
+                            <option value="7">7 days ago</option>
+                            <option value="10">10 days ago</option>
                             <option value="all">All pages</option>
                         </select>
                     </h6>
@@ -81,6 +81,7 @@
                                 {% if not data.last_checked %}
                                     <td><span class="tm-label tm-label-warning no-arrow">{{ data.last_checked }}</span></td>
                                 {% else %}
+                                    
                                     <td><span class="tm-label tm-label-default no-arrow">{{ data.last_checked }}</span></td>
                                 {% endif %}
                                 <td>{{ data.url }}</td>

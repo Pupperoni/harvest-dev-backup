@@ -159,7 +159,7 @@ def resetpages(request):
             elif str.isdigit(str(request.POST.get('reset_pages'))):
                 offset = timedelta(days=-int(request.POST.get('reset_pages')))
                 startDate = unix_time_millis(datetime.today().replace(hour=0,minute=0,second=0,microsecond=0) + offset)
-                endDate = unix_time_millis(datetime.today().replace(hour=23,minute=59,second=59,microsecond=999999) + offset)
+                endDate = unix_time_millis(datetime.today())
                 ''' Reset only pages between startDate and endDate '''
                 gran.reset_pages(domainid=domainid,startDate=startDate,endDate=endDate)
             
@@ -212,48 +212,6 @@ def resetpages(request):
                                 "error":None,
                                 "login": request.user.is_authenticated()
                                 })
-
-@conditional_login_required(login_required, settings.WEB_AUTHENTICATION)
-def updateStatus(request):
-    if request.method == 'GET':
-        all_domains = []
-        gran = Granary()
-        domain_list = gran.get_domain_list()
-        if domain_list != None:
-            for domain in domain_list:
-                all_domains.append({'id':domain['id'],'url':domain['url']})
-        return render(request,'granarytools/updateStatus.html',{
-                                    'all_domains':all_domains,
-                                    "login": request.user.is_authenticated()
-                                    })
-    
-    elif request.method == 'POST':
-        gran = Granary()
-
-        """ See if a domain_id was sent """
-        if 'domain_id' in request.POST and request.POST.get('domain_id') != '0':
-            domain_id = int(request.POST.get('domain_id'))
-        else:
-            return render(request,'granarytools/updateStatus.html', {
-                                        'message':'Failed to retrieve Domain ID',
-                                        "login": request.user.is_authenticated()
-                                        })
-
-        """ See if a new status was selected """
-        if 'status' in request.POST:
-            status = request.POST.get('status')
-        else:
-            return render(request,'granarytools/updateStatus.html', {
-                                        'message':'Failed to retrieve Status',
-                                        "login": request.user.is_authenticated()
-                                        })
-        
-        """ Update page status """ # Need to get list of pages of the domain
-        gran.update_status(page_id=domain_id,status=status)
-        return render(request, 'granarytools/updateStatus.html', {
-                                    'message':'Success',
-                                    "login": request.user.is_authenticated()
-                                    })
 
 @conditional_login_required(login_required, settings.WEB_AUTHENTICATION)
 def domainList(request):
