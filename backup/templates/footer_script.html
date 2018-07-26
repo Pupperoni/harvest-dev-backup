@@ -96,10 +96,7 @@
             $('#pagination-buttons ul').append(prev);
         }
         else{
-            let prev = $("<li><button class='page-btn' disabled>&laquo;</button></li>").click(function(){
-                activebutton --;
-                create_table_body((activebutton-1)*maxdata);
-            });
+            let prev = $("<li><button class='page-btn' disabled>&nbsp;</button></li>");
             $('#pagination-buttons ul').append(prev);
         }
 
@@ -108,7 +105,7 @@
 
         for(let i = 0; i < pagebtnslist.length; i++){
             if(pagebtnslist[i] == 0){ // create ellipsis
-                let ellipsis = $("<li><a class='page-btn'>...</button></li>");
+                let ellipsis = $("<li><button class='page-btn' disabled>...</button></li>");
                 $('#pagination-buttons ul').append(ellipsis);
             }
             else{
@@ -138,10 +135,7 @@
             $('#pagination-buttons ul').append(next);
         }
         else{
-            let next = $("<li><button class='page-btn' disabled>&raquo;</button></li>").click(function(){
-                activebutton ++;
-                create_table_body((activebutton-1)*maxdata);
-            });
+            let next = $("<li><button class='page-btn' disabled>&nbsp;</button></li>");
             $('#pagination-buttons ul').append(next);
         }
     }
