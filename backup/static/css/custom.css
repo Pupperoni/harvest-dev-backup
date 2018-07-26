@@ -311,3 +311,12 @@ top: 0px;
 .form-req{
     border-color: #bbbbbb important!;
     }
+
+.page-btn{
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border-style: hidden;
+    border-radius: 5px;
+}
