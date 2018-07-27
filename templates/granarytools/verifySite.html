@@ -13,11 +13,12 @@
         </div></center>
     </div>
 
-    <div style="margin: auto 10% auto 10%">
-        <div class="row" style="margin:0.5% auto -2% auto;padding: 0.5% 16.5% 0 13.5%">
-            <div class="span8" id="builder" ></div>
-        </div>
-        <p><br></p>
+    <div class="row" style="padding: 0.5% 20% 0 23.7%">
+        <div id="builder" ></div>
+    </div>
+    <p><br></p>
+    <div style="margin: auto">
+
 
         <div id="about-visit">
             {% if error %}
@@ -46,7 +47,8 @@
         </div>
         
         {% if headers %}
-        <table class="table table-responsive table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
                 <thead>
                     <tr>
                         <th>Source</th>
@@ -69,6 +71,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+        </div>
         {% endif %}
     </div>
 </div>
