@@ -3,12 +3,36 @@
 {% block content %}
 
 <div class="tm-container responsive">
-    <div style="box-sizing: border-box; margin: 3.7% auto 3.5% auto; max-width: 1210px;">
-        <div class="image-branding">
-            <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
-        </div>
+    <div id="robot-head" style="margin:2% auto -2% auto"><center>
+        <img class="photo" src="{% static 'img/harvest_robot_black.png' %}" alt="Harvest Robot" style="width:300px;">
+        <h1>Domain List</h1></center>
+    </div>
+
+    <div style="box-sizing: border-box; margin: 0 auto 3.5% auto; max-width: 1210px;">
+        {% comment %} <div class="file-search col-md-8">
+                <div class="input-group">
+                    <input class="form-control input-lg" id="search_input" onkeyup="function()" placeholder="Search" title="Looking for something?" style="width: 60%;height: 4%;padding: 11px;border: 1px solid #ddd;margin-bottom: 15px;">
+                </div>
+            </div> {% endcomment %}
+        {% comment %} <table id="pending_table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+            <thead class="thead-light" style="cursor: pointer;">
+                <tr>
+                    <th style="width:15%;">ID <i class="fa fa-fw fa-sort"></i></th>
+                    <th>Domain Name <i class="fa fa-fw fa-sort"></i></th>
+                </tr>
+            </thead>
+            <tbody id="search_table">
+                {% for domain in domains %}
+                    <tr>
+                        <td>{{domain.id}}</td>
+                        <td>{{domain.url}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table> {% endcomment %}
+
         {% if domains %}
-            <table id="paginating-table" class="table table-bordered table-striped" style="margin-top:3.5%" style="max-width:300px;">
+            <table id="paginating-table" class="table table-bordered table-responsive table-striped" style="margin-top:3.5%" style="max-width:300px;">
                 <thead>
                     <tr>
                         <th style="width:15%;">ID </i></th>
@@ -17,7 +41,7 @@
                 </thead>
                 <tbody></tbody>
             </table>
-            <div id="pagination-buttons" style="float:right">
+            <div id="pagination-buttons" style="float:right;">
                 <ul class="pagination"></ul>
             </div>
         {% else %}

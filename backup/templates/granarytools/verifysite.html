@@ -3,26 +3,22 @@
 {% block content %}
 
 <div class="tm-container">
-    <div class="span10 offset3" style="margin: 5% auto;">
-        <div class="row-fluid">
-            <div class="span5 offset3">
-                <h1 style="font:"> Website Verifier </h1><br>
-                <h6>&nbsp; Download URL: &nbsp;
-                    <input name='url' type='text' id='url' style="width:50%;height:10%;margin-bottom:1%">
-                </h6>
+    <div id="robot-head" style="margin:2% auto auto auto"><center>
+        <img class="photo" src="{% static 'img/harvest_robot_black.png' %}" alt="Harvest Robot" style="width:300px;">
+        <h1>Website Verifier</h1>
+        <div class="file-search" style="max-width: 50%;">
+            <div class="input-group">
+                <input name="url" class="form-control input-lg" id="url" onkeyup="function()" placeholder="Download URL" title="Input URL of the website" style="height: 4%;padding: 11px;border: 1px solid #ddd;margin-bottom: 1%;">
             </div>
-            <div style="margin-top:-2%">
-                <div class="image-branding">
-                <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
-                </div>
-            </div>
-        </div>
+        </div></center>
+    </div>
 
-        <div class="tm-container" style="position:relative;margin-top:1%;">
-            <div class="span8" id="builder" style="position:relative;left:50%;transform: translateX(-50%);-webkit-transform: translateX(-50%);"></div>
+    <div style="margin: auto 10% auto 10%">
+        <div class="row" style="margin:0.5% auto -2% auto;padding: 0.5% 16.5% 0 13.5%">
+            <div class="span8" id="builder" ></div>
         </div>
         <p><br></p>
-            
+
         <div id="about-visit">
             {% if error %}
             <div class="alert alert-danger alert-dismissible fade in span8 offset2" style="margin-bottom:2%">
@@ -40,7 +36,7 @@
         <form method='post'>
             {% csrf_token %}
             <input type="hidden" name="builder-data" id="builder-data"><br>
-            <div style="float:right; margin-right:7%">
+            <div style="float:right; margin-right:27%">
                 <button id="submit" class="btn btn-success" style="width:80px;">Test</button>
             </div>
         </form>
@@ -50,7 +46,7 @@
         </div>
         
         {% if headers %}
-        <table class="table table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
+        <table class="table table-responsive table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
                 <thead>
                     <tr>
                         <th>Source</th>

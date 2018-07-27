@@ -2,18 +2,21 @@
 {% load static %}
 {% block content %}
 
-    <div class="tm-container responsive">
-        <div style="box-sizing: border-box; margin: 3.7% auto 3.5% auto; max-width: 1210px;">
+    <div class="tm-container">
+        <div id="robot-head" style="margin:2% auto auto auto"><center>
             <div>
-                <div class="image-branding">
-                    <img class="photo" src="{% static 'img/harvest_robot.png' %}" alt="Harvest Robot">
+                <img class="photo" src="{% static 'img/harvest_robot_black.png' %}" alt="Harvest Robot" style="width:300px;">
+                <h1>Pending Downloads</h1>
+            </div>
+            <div class="file-search" style="max-width: 50%;">
+                <div class="input-group">
+                    <input class="form-control input-lg" id="search_input" placeholder="Search" title="Looking for something?" style="height: 4%;padding: 11px;border: 1px solid #ddd;margin-bottom: 1%;">
                 </div>
-                <div class="file-search col-md-8">
-                    <div class="input-group">
-                        <input class="form-control input-lg" id="search_input" onkeyup="function()" placeholder="Search" title="Looking for something?" style="width: 60%;height: 4%;padding: 18px;border: 1px solid #ddd;margin-bottom: 15px;">
-                    </div>
-                </div>
-                <table id="pending_table" class="tablesorter table table-bordered table-striped" style="margin-top:3.5%">
+            </div></center>
+        </div>
+        <div style="box-sizing: border-box; margin: 1% auto 3.5% auto; max-width: 1210px;">
+            <div>
+                <table id="pending_table" class="tablesorter table table-responsive table-bordered table-striped" style="margin-top:1%">
                     <thead style="cursor: pointer;">
                         <tr>
                             <th style="width:10%;">ID <i class="fa fa-fw fa-sort"></i></th>
