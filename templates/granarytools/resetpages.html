@@ -12,15 +12,15 @@
                 <form method='post'>
                     {% csrf_token %}
                     <h6>
-                        Domain Name: 
-                        <select name='domain_id' style="width:10%">
+                        Domain Name:
+                        <select name='domain_id' style="max-width:11%;min-width: 155px">
                             <option value="0">Select Domain</option>
                             {% for domain in results.all_domains %}
                                 <option value="{{domain.id}}">{{domain.url}}</option>
                             {% endfor %}
-                        </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        Recently Added Pages:
-                        <select name='reset_pages' style="width:10%">
+                        </select>
+                        Recently Added:
+                        <select name='reset_pages' style="max-width:11%;min-width: 155px">
                             <option value="-1">Select Time Added</option>
                             <option value="0">Today</option>
                             <option value="1">Yesterday</option>
@@ -31,7 +31,7 @@
                             <option value="all">All pages</option>
                         </select>
                     </h6>
-                    <div style="margin-right: -38%; margin-top: 2%">
+                    <div style="margin-right: -35%; margin-top: 2%">
                         <button class="btn btn-danger">Reset</button>
                     </div>
                 </form>
@@ -50,51 +50,55 @@
         <div class="row">
             <div class="span10 offset1">
                 <section id="result">
-                   <div class="page-header" style="margin: 0 0 0 0">
+                   <div class="page-header" style="margin: -7% 0 0 0">
                         <h3><strong>Domain Name: </strong>{{ results.data.domain.name }}</h3>
                         <h5><strong>ID:</strong> {{ results.data.domain.id }}</h5>
                     </div>
-                    <table class="table table-responsive table-bordered table-striped" id="default-buttons" style="max-width: 1210px">
-                        <thead>
-                            <tr>
-                                <th>PageID</th>
-                                <th>AddedDate</th>
-                                <th>LastChecked</th>
-                                <th>URL</th>
-                                <th>Version</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
+                    <div class="table-responsive" >
+                        <table class="table table-responsive table-bordered table-striped" id="default-buttons" style="width: 1210px;">
+                            <thead>
+                                <tr>
+                                    <th style="width:5%;min-width:50px">PageID</th>
+                                    <th style="width:10%;min-width:100px">AddedDate</th>
+                                    <th style="width:7%;min-width:80px">LastChecked</th>
+                                    <th style="width:53%;min-width:300px">URL</th>
+                                    <th style="width:18%;min-width:80px">Version</th>
+                                    <th style="width:7%;min-width:80px;">Status</th>
+                                </tr>
+                            </thead>
 
-                        <tbody>
-                            {% for data in results.data.page %}
-                            <tr>
-                                <td>{{ data.id }}</td>
-                                <td><span class="tm-label tm-label-default no-arrow">{{ data.created }}</span></td>
-                                {% if not data.last_checked %}
-                                    <td><span class="tm-label tm-label-warning no-arrow">{{ data.last_checked }}</span></td>
-                                {% else %}
-                                    
-                                    <td><span class="tm-label tm-label-default no-arrow">{{ data.last_checked }}</span></td>
-                                {% endif %}
-                                <td>{{ data.url }}</td>
-                                <td>{{ data.version }}</td>
-    
-                                {% if data.status == "Successful" %}
-                                    <td><span class="tm-label tm-label-success no-arrow">{{ data.status }}</span></td>
-                                {% elif data.status == "page_crawler_exception" %}
-                                    <td><span class="tm-label tm-label-error no-arrow">{{ data.status }}</span></td>
-                                {% elif data.status == "Created" %}
-                                    <td><span class="tm-label tm-label-warning no-arrow">{{ data.status }}</span></td>
-                                {% else %}
-                                    <td>{{ data.status }}</td>
-                                {% endif %}
-    
-                            </tr>        
-                        {% endfor %}
-        
-                        </tbody>
-                    </table>
+                            <tbody>
+                                {% for data in results.data.page %}
+                                <tr>
+                                    <td>{{ data.id }}</td>
+                                    <td><span class="tm-label tm-label-default no-arrow">{{ data.created }}</span></td>
+                                    {% if not data.last_checked %}
+                                        <td><span class="tm-label tm-label-warning no-arrow">{{ data.last_checked }}</span></td>
+                                    {% else %}
+
+                                        <td><span class="tm-label tm-label-default no-arrow">{{ data.last_checked }}</span></td>
+                                    {% endif %}
+                                    <td>{{ data.url }}</td>
+                                    <td>{{ data.version }}</td>
+
+                                    <td style="text-align:center;">
+                                    {% if data.status == "Successful" %}
+                                        <span class="tm-label tm-label-success no-arrow">{{ data.status }}</span>
+                                    {% elif data.status == "page_crawler_exception" %}
+                                        <span class="tm-label tm-label-error no-arrow">{{ data.status }}</span>
+                                    {% elif data.status == "Created" %}
+                                        <span class="tm-label tm-label-warning no-arrow">{{ data.status }}</span>
+                                    {% else %}
+                                        {{ data.status }}
+                                    {% endif %}
+                                    </td>
+
+                                </tr>
+                            {% endfor %}
+
+                            </tbody>
+                        </table>
+                    </div>
                 </section>
             </div>
         </div>
