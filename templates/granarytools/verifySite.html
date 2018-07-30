@@ -35,13 +35,14 @@
         <form method='post' class="inline">
             {% csrf_token %}
             <input type="hidden" name="builder-data" id="builder-data"><br>
-            <div style="float:right; margin-right:27%;position: sticky;">
-                <button id="submit" class="btn btn-success" style="width:80px;">Test</button>
-            </div>
+            <div class='btn-group' style="float:right; margin-right:27%;position: sticky;">
+                <div >
+                    <button id="submit" class="btn btn-success" style="width:80px;">Test</button>
+                </div>
         </form>
-
-        <div style="float:right; margin-right:-17%;">
-            <button id="reset" class="btn" style="width:80px; position: sticky;">Reset</button>
+                <div style="float:right; margin-right:-17%;">
+                    <button id="reset" class="btn" style="width:80px; position: sticky;">Reset</button>
+                </div>
         </div>
 
         {% if headers %}
