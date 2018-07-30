@@ -19,7 +19,7 @@ $(document).ready(function(){
         id: 'xpath',
         label: 'Xpath',
         type: 'string',
-        size: 90,
+        size: 81,
         unique: 'group',
         
       },

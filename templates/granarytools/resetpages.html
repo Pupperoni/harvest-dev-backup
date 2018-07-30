@@ -19,7 +19,7 @@
                                 <option value="{{domain.id}}">{{domain.url}}</option>
                             {% endfor %}
                         </select>
-                        Recently Added:
+                        Recently Added:&nbsp;
                         <select name='reset_pages' style="max-width:11%;min-width: 155px">
                             <option value="-1">Select Time Added</option>
                             <option value="0">Today</option>
@@ -40,7 +40,7 @@
     </div>
 
     {% if error %}
-        <center><div class="alert alert-danger alert-dismissible fade in" style="width:42%;margin-top: 1%">
+        <center><div class="alert alert-danger alert-dismissible fade in" style="width:36%;margin-top: 1%">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>{{ error }}</strong>
         </div></center>

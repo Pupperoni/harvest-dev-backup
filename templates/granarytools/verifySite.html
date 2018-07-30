@@ -5,7 +5,7 @@
 <div class="tm-container">
     <div id="robot-head" style="margin:2% auto auto auto"><center>
         <img class="photo" src="{% static 'img/harvest_robot_black.png' %}" alt="Harvest Robot" style="width:300px;">
-        <h1>Website Verifier</h1>
+        <h1>File Download Verifier</h1>
         <div class="file-search" style="max-width: 50%;">
             <div class="input-group">
                 <input name="url" class="form-control input-lg" id="url" onkeyup="function()" placeholder="Download URL" title="Input URL of the website" style="height: 4%;padding: 11px;border: 1px solid #ddd;margin-bottom: 1%;">
@@ -13,39 +13,37 @@
         </div></center>
     </div>
 
-    <div class="row" style="padding: 0.5% 20% 0 23.7%">
+    <div class="row" style="padding: 0.5% 26% 0 25%">
         <div id="builder" ></div>
     </div>
     <p><br></p>
     <div style="margin: auto">
-
-
-        <div id="about-visit">
+        <div id="about-visit"><center>
             {% if error %}
-            <div class="alert alert-danger alert-dismissible fade in span8 offset2" style="margin-bottom:2%">
+            <div class="alert alert-danger alert-dismissible fade in col-md-4 center-block" style="margin-bottom:2%;">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>{{ message }}</strong>
             </div>
             {% elif message %}
-            <div class="alert alert-success alert-dismissible fade in span8 offset2" style="margin-bottom:2%">
+            <div class="alert alert-success alert-dismissible fade in col-md-4" style="margin-bottom:2%;">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                 <strong>{{ message }}</strong>
             </div>
-            {% endif %}
+            {% endif %}</center>
         </div>
-                
-        <form method='post'>
+
+        <form method='post' class="inline">
             {% csrf_token %}
             <input type="hidden" name="builder-data" id="builder-data"><br>
-            <div style="float:right; margin-right:27%">
+            <div style="float:right; margin-right:27%;position: sticky;">
                 <button id="submit" class="btn btn-success" style="width:80px;">Test</button>
             </div>
         </form>
 
         <div style="float:right; margin-right:-17%;">
-            <button id="reset" class="btn" style="width:80px;">Reset</button>
+            <button id="reset" class="btn" style="width:80px; position: sticky;">Reset</button>
         </div>
-        
+
         {% if headers %}
         <div class="table-responsive">
             <table class="table table-bordered table-striped span10 offset1" id="default-buttons" style="margin-top:3%;">
