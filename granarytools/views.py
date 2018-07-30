@@ -111,7 +111,7 @@ def pendingDownloads(request):
         """Restructure dictionary to contain the domain name"""
         for entry in pending_downloads:
             domName = gran.get_domain_by_id(entry['domainId'])
-            pages.append({'domainId':entry['domainId'], 'cnt':entry['cnt'], 'domainName':domName['url']})
+            pages.append({'domainId':entry['domainId'], 'cnt':entry['cnt'], 'domainName':domName['url'].encode('utf-8')})
 
     return render(request, 'granarytools/pendingDownloads.html',
                 {
