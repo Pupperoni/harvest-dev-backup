@@ -44,7 +44,7 @@
         // number of rows to be added to the table body
         let pagedatamax = (startindex / maxdata + 1 == pages)?(domainlist.length - startindex):maxdata;
         for(let index = startindex; index < startindex + pagedatamax; index++){
-            let entry = "<tr><td>"+domainlist[index].id+"</td><td><form id='search' action='{% url 'search' %}' method='post'>{% csrf_token %}"+domainlist[index].url+" <a href='javascript:{};' onclick='search_now(\""+domainlist[index].url+"\");'><i class='fa fa-external-link' aria-hidden='true' title='Search'></i></a></td></tr>"; // sorry not sorry (:
+            let entry = "<tr><td>"+domainlist[index].id+"</td><td><form id='search' action='{% url 'search' %}' method='post'>{% csrf_token %}"+domainlist[index].url+" <a href='javascript:{};' onclick='search_now(\""+domainlist[index].url+"\");'><i class='fa fa-external-link' aria-hidden='true' title='View details'></i></a></td></tr>"; // sorry not sorry (:
             body.append(entry);
         }
         create_pagination_buttons();
